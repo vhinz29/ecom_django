@@ -188,3 +188,19 @@ def home(request):
 def design(request):
 
     return render(request, 'design.html', {})
+
+
+
+
+# username: tenacity
+# password: strong&456  ,strong&123
+
+# username: greatest
+# password: weak&123
+
+# username: familyman
+# password: proofread&123
+
+# username: bigcoms
+# password: strong&789
+
