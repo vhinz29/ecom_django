@@ -3537,3 +3537,38 @@ def files(request):
     return {'noti_count': noti_count ,'img_name':img_name}
     # return render(request, "files.html", {})
 
+
+# django driver 
+# username = defensived
+# password = seminar&3456
+
+# username = shielded
+# password = armors@987
+
+# username = hardworks
+# password = manymoney@123
+
+
+# username = heartys
+# password = valentines&654
+
+# username = fullloves
+# password = enjoys&456
+
+# username = secretlove
+# password = fabulous@345
+
+
+# username = romances
+# password = heart&987
+
+# username = affairs
+# password = loveless@345
+
+# username = delicious
+# password = yummys&876
+
+# username = strongman
+# password = greatshape@345
+
+
