@@ -1,0 +1,285 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+   h1{
+   position: relative;
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-style: normal;
+   }
+
+
+   h6{
+   position: relative;
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-style: normal;
+   font-size:  20px;
+   }
+
+
+  .date_design{
+   position: relative;
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-size: 20px;
+   font-style: normal;
+   top: -10px;
+   }
+
+   .month_design{
+   position: relative;
+   color: green;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-size: 15px;
+   font-style: normal;
+   left: 10px;
+   }
+
+   .day_design{
+   position: relative;
+   color: red;
+
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-size: 15px;
+   font-style: normal;
+   left: 15px;
+
+   }
+
+.dropbtn {
+  background: linear-gradient(gray,gray);;
+  color: white;
+  padding: 3px 10px;
+  font-size: 9px;
+  border: none;
+  opacity: 0.5;
+  border-radius: 5px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block; }
+
+.dropdown:hover .dropbtn {background-color: gray;}
+
+.font_spacing{
+position: relative;
+<!--left: 70px;-->
+top: -50px;
+}
+
+.time_spacing{
+position: relative;
+left: 70px;
+width: 120px;
+}
+
+
+.table_bgs {
+  color: white;
+  background-color: #0876e1
+}
+
+</style>
+
+<!--{% for ot in data_months %}-->
+
+<!--              {{ot.log_in|date:"Y-m-d"}}-->
+<!--{%endfor%}-->
+
+<center>
+<h1>Time Section</h1>
+</center>
+
+
+</br></br>
+
+<!--<div class="shadow-lg p-1 mb-4 bg-body-tertiary rounded "><h6>{{date_now}}</h6></div>-->
+<nav>
+        <form action="" method=POST enctype="multipart/form-data">
+        {% csrf_token %}
+
+    <div class="date_design">
+    &#128515; {{date_now}}
+
+    <div class="dropdown month_design">Month &#11206;
+          <div class="dropdown-content">
+              <a class="dropdown-item" href="{% url 'time_update_select' 'Jan'%}">January</a>
+              <a class="dropdown-item" href="{% url 'time_update_select' 'Feb'%}" >February</a>
+              <a class="dropdown-item" href="{% url 'time_update_select' 'Mar'%}" >March</a>
+              <a class="dropdown-item" href="{% url 'time_update_select' 'Apr'%}" >April</a>
+              <a class="dropdown-item" href="{% url 'time_update_select' 'May'%}" >May</a>
+              <a class="dropdown-item" href="{% url 'time_update_select' 'Jun'%}" >June</a>
+              <a class="dropdown-item" href="{% url 'time_update_select' 'Jul'%}" >July</a>
+              <a class="dropdown-item" href="{% url 'time_update_select' 'Aug'%}" >August</a>
+              <a class="dropdown-item" href="{% url 'time_update_select' 'Sep'%}" >September</a>
+              <a class="dropdown-item" href="{% url 'time_update_select' 'Oct'%}" >October</a>
+              <a class="dropdown-item" href="{% url 'time_update_select' 'Nov'%}" >November</a>
+              <a class="dropdown-item" href="{% url 'time_update_select' 'Dec'%}" >December</a>
+          </div>
+    </div>
+
+    <div class="dropdown day_design">Day &#11206;
+          <div class="dropdown-content">
+              {% for day in day_select%}
+              <a class="dropdown-item" href="{% url 'time_update_select' day%}" >{{day}}</a>
+
+              {% endfor %}
+          </div>
+    </div>
+</div>
+    </form>
+
+    </nav>
+
+
+
+<form class="" method="POST">
+    {% csrf_token  %}
+    <div class="shadow p-4 mb-5 bg-body rounded">
+    <table class="table table-striped table-hover table-bordered ">
+        <thead>
+            <tr class="table_bgs">
+                <th scope="col">Username</th>
+                <th scope="col">Login </th>
+                <th scope="col">Logout</th>
+                <th scope="col">Total Hour</th>
+                <th scope="col">OT Hour</th>
+                <th scope="col">Salary</th>
+
+            </tr>
+        </thead>
+            <tbody>
+
+            {%for update in data_months %}
+              {% if update.log_in|date:"Y-m-d" == current_date %}
+
+            <tr>
+              <td class ="">{{ update.user_attend }}</td>
+
+              <td class ="">
+                <div class="container row">
+                          {{ update.log_in |date:"H:i A" }}
+
+                    <div class="mb-2 time_spacing">
+                        <input type="time" class="form-control" id="exampleFormControlInput3" name='login'
+                               value="login" placeholder="">
+                    </div>
+                </div>
+              </td>
+
+              <td class ="">
+                <div class="container row">
+                        {{ update.log_out |date:"H:i A"}}
+
+                  <div class="mb-2 time_spacing">
+                    <input type="time" class="form-control" id="exampleFormControlInput3" name='logout'
+                           value="logout" placeholder="">
+                  </div>
+                </div>
+              </td>
+
+                      <td class ="">{{ update.total_hour }}</td>
+                      {% if update.ot_approved_time == None %}
+                            <td class =""> 0 hr </td>
+                      {% else %}
+                            <td class ="">{{ update.ot_approved_time }}</td>
+                       {% endif %}
+
+                      <td class ="">{{ update.total_salary }}</td>
+
+            </tr>
+            {% endif %}
+            {% endfor %}
+
+            </tbody>
+
+    </table>
+   <div class="d-grid gap-2">
+       <br><button class="btn btn-outline-success" type="submit">
+       Time Modify</button>
+   </div>
+        </br>
+</div>
+</form>
+</br></br>
+
+<center>
+<h1>Employee Salary</h1>
+</center>
+<div class="date_design">
+    &#128515; {{date_now}}
+    </div>
+
+<div class="shadow p-4 mb-5 bg-body rounded">
+    <table class="table table-striped table-hover table-bordered ">
+        <thead>
+            <tr class="table_bgs">
+                <th scope="col">Username</th>
+                <th scope="col">5th Total Days</th>
+                <th scope="col">5th Total Hour</th>
+                <th scope="col">5th Total OT Hour</th>
+                <th scope="col">5th Salary</th>
+                <th scope="col">20th Total Days</th>
+                <th scope="col">20th Total Hour</th>
+                <th scope="col">20th Total OT Hour</th>
+                <th scope="col">20th Salary</th>
+                <th scope="col">Total Salary</th>
+
+            </tr>
+        </thead>
+            <tbody>
+            {% for keys, values in employee_pay.items %}
+              <tr>
+              <td class ="">{{ keys }}</td>
+              <td class ="">{{ values.0 }}</td>
+              <td class ="">{{ values.1 }}</td>
+              <td class ="">{{ values.2 }}</td>
+              <td class ="">{{ values.3 }}</td>
+              <td class ="">{{ values.4 }}</td>
+              <td class ="">{{ values.5 }}</td>
+              <td class ="">{{ values.6 }}</td>
+              <td class ="">{{ values.7 }}</td>
+              <td class ="">{{ values.8 }}</td>
+
+
+              </tr>
+            {% endfor %}
+            </tbody>
+
+    </table>
+
+</div>
+</br></br>
+{% endblock %}

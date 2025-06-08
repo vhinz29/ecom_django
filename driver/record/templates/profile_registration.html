@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  h1{
+   position: relative;
+
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-style: normal;
+   }
+
+</style>
+
+<center>
+<h1>Profile Registration</h1>
+</center><br/>
+
+{% if user.is_authenticated %}
+
+    <form action="" method=POST enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <br><div class="d-grid gap-2">
+            <input type="submit" value="Submit" class="btn btn-outline-danger">
+        </div>
+    </form>
+{% endif %}
+
+</br></br>
+{% endblock %}

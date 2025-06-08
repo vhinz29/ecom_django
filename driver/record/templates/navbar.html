@@ -1,0 +1,211 @@
+<style>
+    .pics_pos{
+    position: relative;
+<!--    left: -5px;-->
+    top: 0px;
+      justify-content: center;
+
+    }
+
+    .but_pos{
+    position: relative;
+<!--    left: -15px;-->
+<!--    top: -13px;-->
+
+    }
+</style>
+<!--<h1>prof</h1>-->
+<!--{{noti_count}}-->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">Mainpage</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Profile
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url 'profile' %}">View</a></li>
+            <li><a class="dropdown-item" href="{% url 'update' %}">Update</a></li>
+            <li><a class="dropdown-item" href="{% url 'delete' %}">Delete</a></li>
+            <li><a class="dropdown-item" href="{% url 'profile_registration' %}">Registration</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{% url 'info'%}">Information</a></li>
+              <li><a class="dropdown-item" href="{% url 'info_delete' %}">Delete</a></li>
+            <li><a class="dropdown-item" href="{% url 'info_register' %}">Register</a></li>
+          </ul>
+        </li>
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Zone
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="{% url 'todanames' 'normal'%}">Toda</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{% url 'zone_view' 'normal' %}">All</a></li>
+
+            <li><a class="dropdown-item" href="{% url 'zone_select' 'Zone I' %}">Zone I</a></li>
+            <li><a class="dropdown-item" href="{% url 'zone_select' 'Zone II' %}">Zone II</a></li>
+            <li><a class="dropdown-item" href="{% url 'zone_select' 'Zone III' %}">Zone III</a></li>
+          </ul>
+        </li>
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dashboard
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url 'dashone' %}">Dash One</a></li>
+            <li><a class="dropdown-item" href="{% url 'dashtwo' %}">Dash Two</a></li>
+<!--            <li><a class="dropdown-item" href="">Dash Three</a></li>-->
+<!--            <li><a class="dropdown-item" href="">Dash Four</a></li>-->
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Attendance
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url 'calendars'%}">Calendar</a></li>
+            <li><a class="dropdown-item" href="{% url 'attendance'%}">Table</a></li>
+            <li><hr class="dropdown-divider"></li>
+
+            <li>
+                <a class="dropdown-item"  href="{% url 'time_update' %}">Time</a>
+            </li>
+          <li>
+              <a class="dropdown-item"  href="{% url 'overtime' %}">Overtime</a>
+          </li>
+          <li>
+              <a class="dropdown-item"  href="{% url 'overtime_approval' %}">Overtime Approval {{cart}}</a>
+          </li>
+              
+
+          </ul>
+        </li>
+
+
+
+      {% if user.is_authenticated %}
+       <li class="nav-item"><a class="nav-link" href="{% url 'logout_user'%}">Logout</a></li>
+
+      {% else %}
+       <li class="nav-item"><a class="nav-link" href="{% url 'login_user' %}">Login</a></li>
+
+       <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+      {% endif %}
+
+
+      </ul>
+
+<!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+        <form class="" method="POST">
+<!--        <button id="sessions" class="btn btn-outline-success text-white" type="submit"></button>-->
+        <a href="{% url 'notifications' %}" class="btn btn-outline-success text-white" tabindex="-1" role="button" aria-disabled="true">
+          Notifications
+      {% if noti_count%}
+                  <span class="badge bg-danger text-white ms-1 rounded-pill" id="overtimes">
+                    {{noti_count}}
+                  </span> </a>
+      {%else%}
+        </a>
+      {% endif %}
+           </form>
+
+    {% if img_name %}
+        <li class="nav-item">
+      <img src= "{{img_name.image.url}}" class="rounded-circle " style="width:40px;height:40px; " alt="...">
+    </li>
+    {% endif %}
+
+
+    </div>
+  </div>
+</nav>
+
+
+<!--<script>-->
+<!--&lt;!&ndash;// Update Notifications&ndash;&gt;-->
+<!--$(document).on('click', '#sessions', function(e){-->
+<!--    e.preventDefault();-->
+
+<!--    let url = "{% url 'notifications' %}";-->
+<!--    $.ajax({-->
+<!--    type: 'POST',-->
+<!--    url: '{% url 'notifications' %}',-->
+<!--    data: {-->
+
+<!--      csrfmiddlewaretoken: '{{ csrf_token }}',-->
+<!--      action: 'post'-->
+<!--    },-->
+<!--    success: function(json){-->
+<!--    document.location.href = url;-->
+<!--&lt;!&ndash;        location.reload();&ndash;&gt;-->
+<!--    },-->
+
+<!--    error: function(xhr, errmsg, err){-->
+
+<!--    }-->
+
+<!--    });-->
+<!--})-->
+
+
+
+<!--</script>-->
+
+
+<!--     <form class="" method="POST">-->
+<!--        {% csrf_token  %}-->
+<!--            <a href="{% url 'notifications' %}" class="btn btn-outline-success text-white" >-->
+<!--                Notifications-->
+<!--                 {% if request.session.notify != 0 %}-->
+<!--                  <span class="badge bg-danger text-white ms-1 rounded-pill" id="overtimes">-->
+<!--                    {{request.session.notify}}-->
+<!--                  </span> </a>-->
+<!--                {%else%}-->
+<!--            </a>-->
+<!--                {% endif %}-->
+<!--      </form>-->
+
+
+
+
+<!--<script>-->
+<!--$(document).on('click', '#sessions', function () {-->
+<!--    // Generate URL without "id" bit-->
+<!--    var url = "{% url 'notifications' %}";-->
+
+<!--&lt;!&ndash;    var id = $(this).attr('id');&ndash;&gt;-->
+
+<!--    // Construct the full URL with "id"-->
+<!--    document.location.href = url;-->
+<!--});-->
+<!--</script>-->
+
+
+
+<!--<script>-->
+<!--var request.session.notify = 1-->
+<!--document.getElementById("overtimes").innerHTML = request.session.notify;-->
+<!--</script>-->
+
+
+<!--{% if request.session.counter < request.session.counter_val %}-->
+<!--  $(document).ready(function() {-->
+<!--  let url = "{% url 'notifications' %}";-->
+<!--  document.location.href = url;-->
+<!--  });-->
+<!--{%endif%}-->

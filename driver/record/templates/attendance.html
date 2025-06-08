@@ -1,0 +1,384 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  h1{
+   position: relative;
+
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-style: normal;
+   }
+
+.check-color{
+background-color:green;
+color:green;
+}
+
+.cross-color{
+background-color:red;
+color:red;
+}
+
+.select-size{
+position: relative;
+font-size:  12px;
+height: 30px;
+width: 150px;
+left: -75px;
+top:-10px;
+}
+
+.select-gap{
+position: relative;
+left: -70px;
+}
+
+.select-gap1{
+position: relative;
+left: -65px;
+}
+
+.select-gap2{
+position: relative;
+left: -60px;
+}
+
+.pos-adjust{
+position:relative;
+left: -90px;
+}
+
+#tooltip{
+position: relative;
+cursor: pointer;
+}
+
+#tooltiptext{
+position: absolute;
+left: 50%;
+top: 0;
+background-color: gray;
+color: #fff;
+font-size:  10px;
+padding: 6px;
+width: 80px;
+border-radius: 5px;
+transform: translateX(-50%);
+visibility: hidden;
+transition: opacity 0.5s ease;
+}
+
+#tooltiptext::before{
+content: "";
+position: absolute;
+left: 50%;
+top: 100%;
+transform: translateX(-50%);
+}
+
+#tooltip:hover #tooltiptext{
+top: -190%;
+visibility: visible;
+opacity: 1;
+}
+
+#tooltips{
+position: relative;
+cursor: pointer;
+}
+
+#tooltiptexts{
+position: absolute;
+left: 25%;
+top: 0;
+background-color: gray;
+color: #fff;
+font-size:  10px;
+padding: 6px;
+width: 120px;
+border-radius: 5px;
+transform: translateX(-50%);
+visibility: hidden;
+transition: opacity 0.5s ease;
+}
+
+#tooltiptexts::before{
+content: "";
+position: absolute;
+left: 50%;
+top: 100%;
+transform: translateX(-50%);
+}
+
+#tooltips:hover #tooltiptexts{
+top: -130%;
+visibility: visible;
+opacity: 1;
+}
+
+
+a{
+text-decoration: none;
+color: white;
+
+}
+
+a:hover{
+text-decoration: none;
+color: #4DD0E1;
+
+}
+
+h2{
+   position: relative;
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-style: normal;
+}
+
+.month-days{
+background: #0876e1;
+color: white;
+text-align:center;
+
+}
+
+thead th.ids{
+background: orange;
+color: white;
+text-align:center;
+
+}
+
+thead th.name{
+background: indigo;
+color: white;
+text-align:center;
+
+}
+
+thead th.name-days{
+background: green;
+color: yellow;
+}
+
+thead th.name-days1{
+background: red;
+color: yellow;
+}
+
+body td.list_ids{
+background: orange;
+color: white;
+}
+
+body td.list_ids:hover{
+background: black;
+color: white;
+}
+
+body td.list_name{
+background: indigo;
+color: white;
+}
+
+body td.list_name:hover{
+background: #263238;
+color: white;
+
+}
+
+body td.cross-days{
+background: red;
+color: white;
+}
+
+body td.cross-days:hover{
+background: #263238;
+color: white;
+}
+
+body td.check-days{
+background: green;
+color: white;
+}
+
+body td.check-days:hover{
+background: black;
+color: white;
+}
+
+</style>
+
+<center>
+{% if month_year_dates%}
+  <h2>Attendance for {{month_year_dates}}</h2></br></br>
+{%else%}
+  <h2>Attendance</h2></br></br>
+{%endif%}
+</center>
+
+<form class="" method="POST">
+      {% csrf_token  %}
+  <div class="column">
+    <div class="row">
+      <th scope="col" >
+          <select class="form-select select-size"  name="month" id="months">
+            <option selected disabled="true ">Month</option>
+            <option value="jan">January</option>
+            <option value="feb">February</option>
+            <option value="mar">March</option>
+            <option value="apr">April</option>
+            <option value="may">May</option>
+            <option value="jun">June</option>
+            <option value="jul">July</option>
+            <option value="aug">Augaust</option>
+            <option value="sep">September</option>
+            <option value="oct">October</option>
+            <option value="nov">November</option>
+            <option value="dec">December</option>
+          </select>
+      </th>
+
+
+      <th scope="col" >
+          <select class="form-select select-size select-gap" name="year" id="year">
+            <option selected disabled="true ">Year</option>
+    <!--        <option value="2023">2023</option>-->
+    <!--        <option value="2024">2024</option>-->
+            <option value="2025">2025</option>
+    <!--        <option value="2026">2026</option>-->
+    <!--        <option value="2027">2027</option>-->
+
+      </select>
+  </th>
+
+    <button class="btn  btn-outline-secondary select-size select-gap1" type="submit"  >Submit</button>
+    <button class="btn  btn-outline-secondary select-size select-gap2" name="reset_name"  value="reset" type="submit"  >Reset</button>
+</div>
+</div>
+</form>
+
+
+<!--<table class="table  table-hover table-bordered border-secondary " style="width:110%">-->
+  <table class="table  table-hover table-bordered border-light pos-adjust" style="width:114%">
+  <thead class="table-bordered border-light  month-days">
+    <tr>
+      <th  colspan="2" style="width:50%">Month Days</th>
+
+      {% for days in num_days%}
+      <th scope="col">{{days}}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <thead class="table-bordered border-light">
+    <tr>
+      <th scope="col" class="ids">ID</th>
+
+      <th scope="col" class="name">Name</th>
+
+      {% for days in name_days%}
+        {% if days != 'Su' %}
+          <th scope="col" class="name-days">{{days}}</th>
+        {% else %}
+          <th scope="col" class="name-days1">{{days}}</th>
+        {% endif %}
+      {% endfor %}
+    </tr>
+  </thead>
+<!--pick_attend -->
+<!--list_attend-->
+  <tbody >
+
+      {% for key, value in dict_attend.items %}
+    <tr>
+<!--      <td scope="col" class="list_ids"><a href="{% url 'attendance_update' value.3 value.1%}">{{value.0}}</a></td>-->
+      <td scope="col" class="list_ids">
+              <div id="tooltip">
+            <a href="{% url 'attendance_update' value.3 value.1%}">
+              <span id="tooltiptext">bodynum: {{value.4}}</span>{{value.0}}</a>
+              </div>
+            </td>
+
+
+      <td scope="col" class="list_name">
+              <div id="tooltips">
+            <a href="">
+              <span id="tooltiptexts">username: {{value.1}}</span>{{value.2}}</a>
+              </div>
+            </td>
+
+      {% for pick in pick_attends %}
+        {% if key == pick.user_attend %}
+        
+
+          {% if pick.log_in|date:"l" == 'Sunday'%}
+            <td scope="col" class="cross-color cross-days">
+              <div id="tooltip">
+            <a href="">
+              <span id="tooltiptext">Day-off</span>&#10005;</a>
+              </div>
+            </td>
+          {% else %}
+          <td scope="col" class="check-color check-days">
+            <div id="tooltip">
+            <a href="{% url 'calendars_update' pick.log_in|date:"Y-m-d" pick.user_attend %}">
+              <span id="tooltiptext">login: {{pick.log_in|date:"H:i"}} logout: {{pick.log_out|date:"H:i"}}</span>&#10003;</a>
+              </div>
+          </td>
+
+        {% endif %}
+        {% endif %}
+      {%endfor%}
+    </tr>
+        {%endfor%}
+
+
+  </tbody>
+</table>
+
+</br></br>
+{% endblock %}
+
+
+<!-- <tr>-->
+<!--      <th scope="row">1</th>-->
+<!--      <td>Mark</td>-->
+<!--      <td>Otto</td>-->
+<!--      <td>@mdo</td>-->
+<!--    </tr>-->
+
+<!--<tbody >-->
+<!--        {% for key, value in nums_username.items %}-->
+
+<!--    <tr >-->
+<!--      {%for val in value %}-->
+
+<!--        {%if forloop.counter == 1%}-->
+<!--          <td><a href="{% url 'attendance_update' val  month_year_dates %}">{{val}}</a></td>-->
+
+<!--        {%elif forloop.counter == 2%}-->
+<!--          <td>{{val}}</td>-->
+
+<!--        {%elif val == 'D' %}-->
+<!--          <td class="cross-color">&#10005;</td>-->
+
+
+<!--        {%else%}-->
+
+<!--          <td class="check-color">-->
+<!--            <div id="tooltip">-->
+
+
+<!--            <a href="{% url 'calendars_update' val  key %}"><span id="tooltiptext">{{val}}</span> <span>&#10003;</span></a>-->
+<!--            </div>-->
+<!--           </td>-->
+<!--       {% endif %}-->
+
+<!--      {%endfor%}-->
+<!--    </tr>-->
+<!--  {% endfor %}-->
+<!--  </tbody>-->

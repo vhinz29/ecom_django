@@ -1,0 +1,1094 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<style>
+
+  :root{
+  --main-radius: 10px;
+  --main-padding: 5px;
+  --main-background: linear-gradient(white ,white);
+  --main-border-style: ridge;
+  }
+
+  .containers{
+    display: grid;
+    height: 100vh;
+    grid-template-columns:  0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr ;
+    grid-template-rows: 40px 40px 100px 100px 100px 100px 100px 100px;
+    grid-template-areas:
+    "headings headings headings headings headings headings headings "
+    "Sun Mon Tue Wed Thur Fri Sat"
+     "cal1 cal2 cal3 cal4 cal5 cal6 cal7"
+     "cal8 cal9 cal10 cal11 cal12 cal13 cal14"
+     "cal15 cal16 cal17 cal18 cal19 cal20 cal21"
+     "cal22 cal23 cal24 cal25 cal26 cal27 cal28"
+     "cal29 cal30 cal31 cal32 cal33 cal34 cal35"
+     "cal36 cal37 cal38 cal39 cal40 cal41 cal42";
+
+
+    grid-gap: 0.3rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    font-size: 12px;
+    color: white;
+    text-align: left;
+      justify-content: center;
+  }
+
+
+
+  #headings{
+  grid-area: headings;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+<!--  background: var(&#45;&#45;main-background);-->
+  border-style: var(--main-border-style);
+  }
+
+  #Mon{
+  grid-area:Mon;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+<!--  background: var(&#45;&#45;main-background);-->
+  border-style: var(--main-border-style);
+  }
+
+   #Tue{
+  grid-area:Tue;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+<!--  background: var(&#45;&#45;main-background);-->
+  border-style: var(--main-border-style);
+  }
+
+  #Wed{
+  grid-area:Wed;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+<!--  background: var(&#45;&#45;main-background);-->
+  border-style: var(--main-border-style);
+  }
+
+  #Thur{
+  grid-area:Thur;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+<!--  background: var(&#45;&#45;main-background);-->
+  border-style: var(--main-border-style);
+  }
+
+  #Fri{
+  grid-area:Fri;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+<!--  background: var(&#45;&#45;main-background);-->
+  border-style: var(--main-border-style);
+  }
+
+  #Sat{
+  grid-area:Sat;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+<!--  background: var(&#45;&#45;main-background);-->
+  border-style: var(--main-border-style);
+  }
+
+  #Sun{
+  grid-area: Sun;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+<!--  background: var(&#45;&#45;main-background);-->
+  border-style: var(--main-border-style);
+  }
+
+
+  #cal1{
+  grid-area:cal1;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: linear-gradient(white ,white);
+  border-style: var(--main-border-style);
+  }
+
+  #cal1:hover{
+  background: linear-gradient(#FFCDD2 ,#FFCDD2);
+  opacity: 0.7;
+
+  }
+
+   #cal2{
+  grid-area:cal2;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal2:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+
+  }
+
+  #cal3{
+  grid-area:cal3;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal3:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+
+  }
+
+  #cal4{
+  grid-area:cal4;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal4:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal5{
+  grid-area:cal5;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal5:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal6{
+  grid-area:cal6;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal6:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal7{
+  grid-area: cal7;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal7:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal8{
+  grid-area: cal8;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal8:hover{
+  background: linear-gradient(#FFCDD2 ,#FFCDD2);
+  opacity: 0.7;
+  }
+
+    #cal9{
+  grid-area: cal9;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal9:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal10{
+  grid-area: cal10;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal10:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+   #cal11{
+  grid-area:cal11;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal11:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal12{
+  grid-area:cal12;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal12:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal13{
+  grid-area:cal13;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal13:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal14{
+  grid-area:cal14;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal14:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal15{
+  grid-area:cal15;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal15:hover{
+  background: linear-gradient(#FFCDD2 ,#FFCDD2);
+  opacity: 0.7;
+  }
+
+  #cal16{
+  grid-area: cal16;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal16:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal17{
+  grid-area: cal17;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal17:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+    #cal18{
+  grid-area: cal18;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal18:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal19{
+  grid-area: cal19;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal19:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal20{
+  grid-area: cal20;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal20:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+   #cal21{
+  grid-area:cal21;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal21:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal22{
+  grid-area:cal22;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal22:hover{
+  background: linear-gradient(#FFCDD2 ,#FFCDD2);
+  opacity: 0.7;
+  }
+
+  #cal23{
+  grid-area:cal23;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal23:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal24{
+  grid-area:cal24;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal24:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal25{
+  grid-area:cal25;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal25:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal26{
+  grid-area: cal26;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal26:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal27{
+  grid-area: cal27;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal27:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+    #cal28{
+  grid-area: cal28;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal28:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal29{
+  grid-area: cal29;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal29:hover{
+  background: linear-gradient(#FFCDD2 ,#FFCDD2);
+  opacity: 0.7;
+  }
+
+  #cal30{
+  grid-area:cal30;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal30:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal31{
+  grid-area: cal31;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal31:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal32{
+  grid-area: cal32;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal32:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+    #cal33{
+  grid-area: cal33;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal33:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal34{
+  grid-area: cal34;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal34:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal35{
+  grid-area: cal35;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal35:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal36{
+  grid-area: cal36;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal36:hover{
+  background: linear-gradient(#FFCDD2 ,#FFCDD2);
+  opacity: 0.7;
+  }
+
+  #cal37{
+  grid-area: cal37;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal37:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal38{
+  grid-area: cal38;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal38:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal39{
+  grid-area: cal39;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal39:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+
+  #cal40{
+  grid-area: cal40;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal40:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal41{
+  grid-area: cal41;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal41:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+  #cal42{
+  grid-area: cal42;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  border-style: var(--main-border-style);
+  }
+
+  #cal42:hover{
+  background: linear-gradient(#DCEDC8 ,#DCEDC8);
+  opacity: 0.7;
+  }
+
+
+ .headings{
+    position: relative;
+    left: 530px;
+    top: -5px;
+    font-size: 30px;
+    color: white;
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+    opacity: 0.8;
+
+<!--   z-index:1;-->
+<!--    justify-content: center;-->
+<!--    text-alignment: center;-->
+   }
+
+a:link {
+    text-decoration: none;
+    background-color: transparent;
+
+}
+
+<!--h6:hover {-->
+<!--    color: black;-->
+<!--    text-decoration: none;-->
+<!--    background-color: transparent;-->
+<!--    opacity: 0.6;-->
+<!--    font-size: 20px;-->
+<!--}-->
+
+<!--a:visited {-->
+<!--   background-color: transparent;-->
+<!--   text-decoration: none;-->
+<!--}-->
+
+<!--a :active {-->
+<!--    text-decoration: none;-->
+<!--    background-color: transparent;-->
+<!--}-->
+
+
+.cal-align h6{
+    color: green;
+    position: relative;
+    left: 140px;
+    font-size:  17px;
+<!--    opacity: 0.5;-->
+}
+
+.cal-align h6:hover{
+  position: relative;
+  color: green;
+  font-size: 22px;
+<!--  opacity: 0.9;-->
+
+  }
+
+
+.cal-align1{
+    color: #00BCD4;
+    position: relative;
+    left: 140px;
+    font-size:  17px;
+}
+
+.cal-align2{
+    color: black;
+    position: relative;
+    left: 30px;
+    top: -17px;
+    font-size:  13px;
+    opacity: 0.5;
+}
+
+.cal-header{
+    color: white;
+    position: relative;
+    left: 470px;
+    top: -5px;
+    font-size:  25px;
+<!--     opacity: 0.6;-->
+}
+
+.cal-days{
+    color: black;
+    top:3px;
+    position: relative;
+    font-size:  15px;
+    opacity: 0.6;
+}
+
+.cal-dates{
+    color: black;
+    top:4px;
+    left: -110px;
+    position: relative;
+    font-size:  14px;
+    opacity: 0.6;
+}
+
+.cal-but{
+    position: relative;
+    padding:3px 3px;
+    color: black;
+    font-size:  14px;
+    opacity: 0.6;
+}
+
+.cal-but-today{
+    position: relative;
+    padding: 3px 10px;
+    color: black;
+    font-size:  12px;
+    top: -1px;
+    border-radius: 5px;
+
+}
+
+.cal-but-pos{
+    position: relative;
+    left: -4px;
+    border-radius: 5px;
+}
+
+<!--.cal-text{-->
+<!--    color: black;-->
+<!--    position: relative;-->
+<!--    opacity: 0.6;-->
+}
+
+.cal-text h6{
+   position: relative;
+  left: 140px;
+  color: red;
+  font-size: 17px;
+<!--  opacity: 0.6;-->
+  }
+
+
+.cal-text h6:hover{
+  position: relative;
+  color: red;
+  font-size: 22px;
+  opacity: 0.9;
+
+  }
+
+.cal-but-select{
+    position: relative;
+    width: 110px;
+    padding: 1px 5px;
+    font-size:  13px;
+    left: 1085px;
+    top: -43px;
+    color: black;
+    background-color: lightgray;
+    opacity: 0.8;
+    border-radius: 5px;
+
+}
+
+.cal-but-but{
+    position: relative;
+    padding:3px 3px;
+    color: black;
+    font-size:  14px;
+    left: 1200px;
+    top: -70px;
+
+    opacity: 0.6;
+        border-radius: 5px;
+
+}
+
+h4{
+   position: relative;
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-style: normal;
+   font-size:  20px;
+
+   }
+
+
+</style>
+
+    <br/><br/>
+
+<h4>Hi! {{names_users}} &#128515;</h4>
+<div class="containers">
+<!--headings-->
+    <nav  id="headings" class="bg-primary">
+        <div class="container ">
+            <div class="row g-2 mb-5">
+                <div class="col-auto cal-but">
+
+               <form action="" method=POST enctype="multipart/form-data">
+                {% csrf_token %}
+                   <button  name="add"  value="add" style="border-radius:5px"> < </button>
+                   <button  name="minus"  class='cal-but-pos' value="minus">> </button>
+                      <button  name="today"  class='cal-but-today' value="today">Today </button>
+               </form>
+                </div>
+
+                <div class="col-auto cal-header">
+                    {{month}}
+
+                </div>
+
+            <form action="" method=POST enctype="multipart/form-data">
+                {% csrf_token %}
+          <div class="col-auto ">
+           <select class="form-select cal-but-select"  name="username" id="usernames">
+            <option selected disabled="true ">Username</option>
+              {% for choos in choose_profile %}
+            <option value={{choos.user}}>{{choos.user}}</option>
+             {% endfor%}
+           </select>
+
+           </div>
+
+            <div class="col-auto cal-but-but">
+            <button  class='cal-but-today' type="submit">Submit </button>
+            </div>
+            </form>
+        </div>
+        </div>
+    </nav>
+
+<!--Sunday-->
+    <nav  id="Sun" class="container bg-warning">
+        <div class="Sun cal-days ">
+            <center>
+            Sunday
+            </center>
+        </div>
+    </nav>
+
+
+<!--Monday-->
+    <nav  id="Mon" class="container bg-warning">
+        <div class="Mon cal-days">
+            <center>
+            Monday
+                </center>
+        </div>
+    </nav>
+
+<!--Tuesday-->
+    <nav  id="Tue" class="container bg-warning">
+        <div class="Tue cal-days">
+            <center>
+            Tuesday
+            </center>
+        </div>
+    </nav>
+
+<!--Wednesday-->
+    <nav  id="Wed" class="container bg-warning">
+        <div class="Wed cal-days">
+            <center>
+            Wednesday
+            </center>
+        </div>
+    </nav>
+
+<!--Thursday-->
+    <nav  id="Thur" class="container bg-warning">
+        <div class="Thur cal-days">
+            <center>
+            Thursday
+            </center>
+        </div>
+    </nav>
+
+<!--Friday-->
+    <nav  id="Fri" class="container bg-warning">
+        <div class="Fri cal-days">
+            <center>
+            Friday
+            </center>
+        </div>
+    </nav>
+
+<!--Saturday-->
+    <nav  id="Sat" class="container bg-warning">
+        <div class="Sat cal-days">
+            <center>
+            Saturday
+            </center>
+        </div>
+    </nav>
+
+
+{% for key, value in dic_cal_days.items %}
+    <nav  id={{key}} class="container cal1">
+    {% if value.2 %}
+                <div class="key cal-align">
+                    <a href="{% url 'calendars_update' value get_user_names %}"><h6>{{value.0}}</h6></a>
+                </div>
+                     </br>
+
+                <div class="key cal-align2">
+                    {%if value.2%}
+                        in:&nbsp; &nbsp; {{value.2}}
+                        </br>
+                        out: {{value.3}}
+                    {% else %}
+                        {{value.2}}
+                        </br>
+                        {{value.3}}
+                    {%endif%}
+                 </div>
+
+
+
+    {% elif value.1 %}
+        <div class="key cal-align">
+            <h6>{{value.0}}</h6>
+
+    {% else %}
+        <div class="key cal-text">
+            <h6>{{value}}</h6>
+
+    {% endif %}
+    </nav>
+{%endfor %}
+
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+         <div class="card-header  text-white bg-primary text-center"><h5>5th Salary Pay</h5></div>
+
+        <table class="table table-hover">
+          <tbody>
+            <tr>
+              <td>Rate per/hour</td>
+              <td>&#8369;{{user_pays.rate}}</td>
+            </tr>
+            <tr>
+              <td>Total hours</td>
+              <td>{{user_pays.total_hours_5}}</td>
+            </tr>
+            <tr>
+              <td>Overtime per/hour</td>
+              <td>&#8369;{{user_pays.ot_rate}} </td>
+            </tr>
+            <tr>
+              <td>Overtime Total hours</td>
+              <td>{{user_pays.ot_total_hrs_5}} </td>
+            </tr>
+            <tr>
+              <td>Overtime Salary</td>
+              <td>&#8369;{{user_pays.ot_total_pay_5}} </td>
+            </tr>
+            <tr>
+              <td>Total salary</td>
+              <td>&#8369;{{user_pays.total_salary_5}}</td>
+            </tr>
+            <tr>
+              <td>Total Payment</td>
+              <td>&#8369;{{user_pays.total_payment_5}} </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card ">
+                  <div class="card-header  text-white bg-primary text-center"><h5>20th Salary Pay</h5></div>
+      <table class="table table-hover">
+          <tbody>
+            <tr>
+              <td>Rate per/hour</td>
+              <td>&#8369;{{user_pays.rate}}</td>
+            </tr>
+            <tr>
+              <td>Total hours</td>
+              <td>{{user_pays.total_hours_20}}</td>
+            </tr>
+            <tr>
+              <td>Overtime per/hour</td>
+              <td>&#8369;{{user_pays.ot_rate}}</td>
+            </tr>
+            <tr>
+              <td>Overtime Total hours</td>
+              <td>{{user_pays.ot_total_hrs_20}} </td>
+            </tr>
+            <tr>
+              <td>Overtime Salary</td>
+              <td>&#8369;{{user_pays.ot_total_pay_20}} </td>
+            </tr>
+            <tr>
+              <td>Total Salary</td>
+              <td>&#8369;{{user_pays.total_salary_20}}</td>
+            </tr>
+            <tr>
+              <td>Total Payment</td>
+                <td>&#8369;{{user_pays.total_payment_20}} </td>
+
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
+<br><br><br><br><br>
+
+{% endblock %}
+
+
+<!--<form class="" method="POST">-->
+<!--      {% csrf_token  %}-->
+<!--  <div class="column">-->
+<!--    <div class="row">-->
+<!--      <th scope="col" >-->
+<!--          <select class="form-select select-size"  name="username" id="usernames">-->
+<!--            <option selected disabled="true ">Username</option>-->
+<!--              {% for choos in choose_profile %}-->
+<!--            <option value={{choos.user}}>{{choos.user}}</option>-->
+<!--             {% endfor%}-->
+<!--          </select>-->
+<!--      </th>-->
+
+<!--    <button  class='cal-but-today' type="submit">Submit </button>-->
+<!--&lt;!&ndash;    <button class="btn  btn-outline-secondary select-size select-gap1" type="submit"  >Submit</button>&ndash;&gt;-->
+
+<!--</div>-->
+<!--</div>-->
+<!--</form>-->

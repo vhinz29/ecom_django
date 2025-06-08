@@ -1,0 +1,320 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<style>
+
+  :root{
+  --main-radius: 10px;
+  --main-padding: 5px;
+  --main-background: linear-gradient(gray,black,black,#00abf0);
+  }
+
+  .containers{
+    display: grid;
+    height: 100vh;
+    grid-template-columns:  0.5fr 0.5fr ;
+    grid-template-rows: 50px 40px 40px 40px 40px 40px 40px 40px;
+    grid-template-areas:
+    "headings headings"
+     "prof pics"
+     "prof1 pics"
+     "prof2  pics"
+     "prof3  pics"
+     "prof4  pics"
+     "prof5  prof6"
+     "prof7  prof8";
+
+    grid-gap: 0.5rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    font-size: 12px;
+    color: silver;
+    text-align: left;
+      justify-content: center;
+
+<!--    text-indent: 5px;-->
+  }
+
+  #headings{
+  grid-area: headings;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #pics{
+  grid-area: pics;
+  justify-content: left;
+  align-items: center;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+   #prof{
+  grid-area: prof;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #prof1{
+  grid-area: prof1;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #prof2{
+  grid-area: prof2;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #prof3{
+  grid-area: prof3;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #prof4{
+  grid-area: prof4;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #prof5{
+  grid-area: prof5;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #prof6{
+  grid-area: prof6;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+    #prof7{
+  grid-area: prof7;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+      #prof8{
+  grid-area: prof8;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+ .headings{
+    position: relative;
+    left: 530px;
+    top: -5px;
+    font-size: 30px;
+    color: white;
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+    opacity: 0.8;
+
+<!--   z-index:1;-->
+<!--    justify-content: center;-->
+<!--    text-alignment: center;-->
+   }
+
+
+.prof{
+    color: yellow;
+    position: relative;
+    left: 5px;
+    font-size:  9px;
+    opacity: 0.8;
+}
+
+.prof1{
+    color: white;
+    position: relative;
+    left: 100px;
+    top: -17px;
+    font-size:  20px;
+     opacity: 1;
+}
+
+</style>
+    <br/><br/>
+<div class="containers">
+  {% for name in names %}
+<!--headings-->
+    <nav  id="headings">
+        <div class="container">
+            <div class="headings">
+                Driver Profile
+            </div>
+        </div>
+    </nav>
+
+<!--profile pictures-->
+
+    <nav  id="pics" class="container">
+            <img class="card-img-top" src="{{name.image.url}}" alt="" style="width:100%;height:220px;"  alt="...">
+    </nav>
+
+<!--profile-->
+    <nav  id="prof">
+        <div class="prof">
+            Firstname
+            <div class="prof1">
+                {{name.first_name}}
+            </div>
+        </div>
+    </nav>
+
+<!--profile1-->
+    <nav id="prof1">
+        <div class="prof">
+            Lastname
+            <div class="prof1">
+                {{name.last_name}}
+
+            </div>
+        </div>
+    </nav>
+
+    <nav id="prof2">
+        <div class="prof">
+            Phone Number
+            <div class="prof1">
+                {{name.phone}}
+            </div>
+        </div>
+    </nav>
+
+    <nav id="prof3">
+        <div class="prof">
+            Email Address
+            <div class="prof1">
+                {{name.email}}
+            </div>
+        </div>
+    </nav>
+
+    <nav id="prof4">
+        <div class="prof">
+            Body Number
+            <div class="prof1">
+                {{name.bodynum}}
+
+            </div>
+        </div>
+
+    </nav>
+
+    <nav id="prof5">
+        <div class="prof">
+            Toda Name
+            <div class="prof1">
+                {{name.todaname}}
+            </div>
+        </div>
+    </nav>
+
+    <nav id="prof6">
+        <div class="prof">
+            Driver ID
+            <div class="prof1">
+                {{inforecord}}
+            </div>
+        </div>
+    </nav>
+
+    <nav id="prof7">
+        <div class="prof">
+            Zone Number
+            <div class="prof1">
+                {{name.zone}}
+            </div>
+        </div>
+    </nav>
+
+    <nav id="prof8">
+        <div class="prof">
+            License Number
+            <div class="prof1">
+                {{name.license_id}}
+            </div>
+        </div>
+    </nav>
+
+
+{% endfor %}
+
+</div>
+
+
+{% endblock %}
+
+
+<!--{% if user.is_authenticated %}-->
+<!--  <right>-->
+<!--  {% for name in names %}-->
+
+<!--  <form>-->
+<!--      <fieldset disabled>-->
+<!--    <div class="col-md-6">-->
+<!--      <label  class="form-label">First Name</label>-->
+<!--      <input type="text" class="form-control"  placeholder= {{name.first_name}} >-->
+<!--    </div></br>-->
+<!--    <div class="col-md-6">-->
+<!--      <label  class="form-label">Last Name</label>-->
+<!--      <input type="text" class="form-control" placeholder= {{name.last_name}} >-->
+<!--    </div></br>-->
+
+<!--    <div class="col-md-6">-->
+<!--      <label  class="form-label">Phone Number</label>-->
+<!--      <input type="text" class="form-control" placeholder= {{name.phone}}>-->
+<!--    </div></br>-->
+
+<!--      <div class="col-md-6">-->
+<!--      <label  class="form-label">Email Address</label>-->
+<!--      <input type="text" class="form-control" placeholder= {{name.email}}>-->
+<!--    </div></br>-->
+
+<!--      <div class="col-md-6">-->
+<!--      <label  class="form-label">Body Number</label>-->
+<!--      <input type="text" class="form-control" placeholder= {{name.bodynum}}>-->
+<!--    </div></br>-->
+
+<!--      <div class="col-md-6">-->
+<!--      <label  class="form-label">Toda Name</label>-->
+<!--      <input type="text" class="form-control" placeholder= {{name.todaname}}>-->
+<!--    </div></br>-->
+
+<!--      <div class="col-md-6">-->
+<!--      <label  class="form-label">Zone Number</label>-->
+<!--      <input type="text" class="form-control" placeholder= '{{name.zone}}'>-->
+<!--    </div></br>-->
+
+<!--  </fieldset>-->
+<!--  </form>-->
+
+<!--    <img class="card-img-top" src="{{name.image.url}}" alt="" style="width:600px;height:600px;"  alt="...">-->
+<!--    &lt;!&ndash;<div class="card" style="width: 20rem;">&ndash;&gt;-->
+<!--    &lt;!&ndash;  <img class="card-img-top" src="{{name.image.url}}" alt=""   alt="...">&ndash;&gt;-->
+
+<!--<br/>-->
+
+<!--  </div>-->
+<!--  {% endfor %}-->
+<!--  </right>-->
+<!--{%endif%}-->
+

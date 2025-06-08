@@ -1,0 +1,910 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+  .margin{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "Poppins", serif;
+   }
+
+  :root{
+  --main-radius: 10px;
+  --main-padding: 5px;
+  --main-background: linear-gradient(gray,black,black,#00abf0);
+  }
+
+  .containers{
+    display: grid;
+    height: 110vh;
+    grid-template-columns: 1fr 1fr 1fr  1fr;
+    grid-template-rows: 0.4fr 0.4fr 0.4fr 0.4fr 1.5fr 1.5fr;
+    grid-template-areas:
+     "nav nav1 nav2 nav3"
+     "content1 content2 content3 nav4"
+     "footer footer1 footer2 footer3"
+     "salary1 salary2 salary3 salary4"
+     "footer4 main main main"
+     "content5 sidebar content6 content4 ";
+
+    grid-gap: 0.2rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    font-size: 12px;
+    color: silver;
+    text-align: left;
+    text-indent: 5px;
+  }
+
+  #salary1{
+  grid-area: salary1;
+  justify-content: left;
+  align-items: center;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: linear-gradient(gray,black,black,#00abf0);
+  }
+
+  #salary2{
+  grid-area: salary2;
+  justify-content: left;
+  align-items: center;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #salary3{
+  grid-area: salary3;
+  justify-content: left;
+  align-items: center;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #salary4{
+  grid-area: salary4;
+  justify-content: left;
+  align-items: center;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  .nav{
+  grid-area: nav;
+  justify-content: left;
+  align-items: center;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+   #nav1{
+  grid-area: nav1;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #nav2{
+  grid-area: nav2;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #nav3{
+  grid-area: nav3;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #nav4{
+  grid-area: nav4;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  main{
+  grid-area: main;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #sidebar{
+  background:#18ffff;
+  grid-area: sidebar;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #content1{
+  background:#6fffd2;
+  grid-area: content1;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #content2{
+  background:#6fffda;
+  grid-area: content2;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #content3{
+  background: #6fffba;
+  grid-area: content3;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+
+  #footer{
+  grid-area: footer;
+  justify-content: left;
+  align-items: center;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #footer1{
+  grid-area: footer1;
+  justify-content: left;
+  align-items: center;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #footer2{
+  grid-area: footer2;
+  justify-content: left;
+  align-items: center;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #footer3{
+  grid-area: footer3;
+  justify-content: left;
+  align-items: center;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #footer4{
+  grid-area: footer4;
+  justify-content: left;
+  align-items: center;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+    #content4{
+  background: #6fffba;
+  grid-area: content4;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+   #content5{
+  background: #6fffba;
+  grid-area: content5;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+    #content6{
+  background: #6fffba;
+  grid-area: content6;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+
+  .nav h1{
+  position: relative;
+  padding: 0 1rem;
+  font-size: 30px;
+  color: transparent;
+  -webkit-text-stroke: 0.1rem #00abf0;
+  background-image: linear-gradient(#00abf0 ,#00abf0 );
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  -webkit-background-clip: text;
+  animation: animate 6s linear infinite;
+  }
+
+  @keyframes animate{
+      0% ,10%, 100%{
+        background-position: -25rem 0;
+      }
+
+      80% ,90%{
+        background-position: 0 0;
+      }
+    }
+
+table{
+  width:130%;
+  }
+
+table,th,td{
+  border: 1px solid white;
+  }
+
+td{
+  text-indent: 5px;
+  }
+
+th{
+  color:white;
+  text-align: center;
+  }
+
+tr:hover {
+  color: white;
+  background-color: gray;
+  }
+
+tbody tr{
+  height:30px;
+ }
+
+.container{
+  overflow-x:auto;
+  overflow-y:auto;
+  }
+
+input {
+  color: gray;
+  width: 17%;
+  padding: 2px 15px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border:none;
+  border-radius: 5px;
+}
+
+ .searches button {
+  border: none;
+  color: gray;
+  padding: 2px 32px;
+  margin: 5px 3px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.searches input {
+  border: none;
+  color: gray;
+  padding: 2px 32px;
+  margin: 5px 3px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+nav .salary1{
+    }
+
+nav .salary2{
+    color:white;
+    font-size: 25px;
+    text-align: center;
+    opacity: .7
+    }
+
+nav .salary3{
+    color:white;
+    font-size: 25px;
+    text-align: center;
+    opacity: .7
+    }
+
+nav .salary4{
+    color:white;
+    font-size: 25px;
+    text-align: center;
+    opacity: .7
+    }
+
+
+
+
+ nav .nav1{
+    color:white;
+    font-size: 25px;
+    text-align: center;
+    opacity: .7
+
+    }
+
+ nav .nav2{
+    color:white;
+    font-size: 25px;
+    text-align: center;
+    opacity: .7
+    }
+
+ nav .nav3{
+    color:white;
+    font-size: 25px;
+    text-align: center;
+    opacity: .7
+    }
+
+ nav .nav4{
+    color:white;
+    font-size: 25px;
+    text-align: center;
+    opacity: .7
+
+    }
+
+nav .content1{
+    color:white;
+    font-size: 25px;
+    text-align: center;
+    opacity: .7
+    }
+
+
+nav .content2{
+    color:white;
+    font-size: 25px;
+    text-align: center;
+    opacity: .7
+    }
+
+nav .content3{
+    color:white;
+    font-size: 25px;
+    text-align: center;
+    opacity: .7
+    }
+
+.footer{
+    color:white;
+    font-size: 25px;
+    text-align: center;
+    opacity: .7
+    }
+
+.footer3{
+    color:white;
+    font-size: 15px;
+    text-align: center;
+    opacity: .7
+    }
+
+.footer4{
+    color:white;
+    font-size: 15px;
+    text-align: center;
+    opacity: .7
+    }
+
+
+.card-img-top{
+    border-radius: 5px;
+    }
+
+select {
+  width: 30%;
+  padding: 1.5px 13px;
+  border: none;
+  border-radius: 5px;
+  color:gray;
+
+}
+
+.adjust-table {
+  position: relative;
+  width:100%;
+  top: 10px;
+  }
+
+.radio-search{
+    font-size: 12px;
+    padding: 2px 10px;
+}
+
+.pos-radiobut{
+    position: relative;
+    bottom: 80px;
+    left: 150px;
+    }
+
+.pos-radiobut1{
+    position: relative;
+    bottom: 60px;
+    left: 0px;
+    }
+
+.pos-radiobut2{
+    position: relative;
+    bottom: 140px;
+    left: 150px;
+    }
+
+.pos-radiobut3{
+    position: relative;
+    bottom: 120px;
+    left: 0px;
+    }
+
+.pos-radiobut4{
+    position: relative;
+    bottom: 100px;
+    left: 45px;
+    }
+
+
+
+.dropbtn {
+  background: linear-gradient(gray,black,black,#00abf0);;
+  color: white;
+  padding: 3px 10px;
+  font-size: 12px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 5px 5px;
+    border-radius: 5px;
+
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block; }
+
+.dropdown:hover .dropbtn {background-color: gray;}
+
+</style>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+
+<div class="containers">
+  <div class="nav"><h1>
+    Driver's Dashboard
+  </h1></div>
+
+    <nav id="salary1" class="salary1>
+        <form action="" method=POST enctype="multipart/form-data">
+        {% csrf_token %}
+
+    <div class="dropdown">
+       <button class="dropbtn">&#11206;</button>
+          <div class="dropdown-content">
+              <a class="dropdown-item" href="{% url 'dashone_salary' 1 %}">January</a>
+              <a class="dropdown-item" href="{% url 'dashone_salary' 2%}">February</a>
+              <a class="dropdown-item" href="{% url 'dashone_salary' 3%}">March</a>
+              <a class="dropdown-item" href="{% url 'dashone_salary' 4%}">April</a>
+              <a class="dropdown-item" href="{% url 'dashone_salary' 5%}">May</a>
+              <a class="dropdown-item" href="{% url 'dashone_salary' 6%}">June</a>
+              <a class="dropdown-item" href="{% url 'dashone_salary' 7%}">July</a>
+              <a class="dropdown-item" href="{% url 'dashone_salary' 8%}">August</a>
+              <a class="dropdown-item" href="{% url 'dashone_salary' 9%}">September</a>
+              <a class="dropdown-item" href="{% url 'dashone_salary' 10%}">October</a>
+              <a class="dropdown-item" href="{% url 'dashone_salary' 11%}">November</a>
+              <a class="dropdown-item" href="{% url 'dashone_salary' 12%}">December</a>
+          </div>
+        &nbsp;Month & Year
+    </div>
+    </form>
+    <div class="footer">
+    {% for dash in dash_salary_gets %}
+        {%if forloop.counter  == 1%}
+            {{dash.log_in| date:"F" }} 2025
+        {% endif %}
+     {% endfor %}
+    </div>
+    </nav>
+
+    <nav id="salary2">Total Hours and Salary
+        <div class="salary2">
+            {{dash_salary_total.total_hour}} / {{dash_salary_total.total_salary}}
+        </div>
+    </nav>
+
+    <nav id="salary3">Total OT Hours and OT Salary
+        <div class="salary3">
+            {{dash_salary_total.ot_total_hour}} / {{dash_salary_total.ot_salary}}
+        </div>
+    </nav>
+
+    <nav id="salary4">Total Salary
+        <div class="salary4">
+            &#8369;{{dash_salary_total.total_payment}}
+        </div>
+    </nav>
+
+
+
+<!--body number-->
+    <nav  id="nav1">Body Number
+        <div class="nav1">
+            {{name_dash.bodynum}}
+        </div>
+    </nav>
+
+<!--driver name-->
+    <nav id="nav2">Driver Name
+        <div class="nav2">
+        {{name_dash.last_name}}, {{name_dash.first_name}}
+        </div>
+    </nav>
+
+<!--id expiration-->
+    <nav id="nav3">ID Expiration
+        <div class="nav3">
+        {% for name in infoadd %}
+        {{name.ID_expired}}
+         {% endfor %}
+        </div>
+    </nav>
+
+<!--license expiration-->
+
+    <nav id="nav4">License Expiration
+        <div class="nav4">
+        {{name_dash.license_expired}}
+        </div>
+
+    </nav>
+
+<!--    footer-->
+    <nav id="footer">Driver per Zone  , Toda Count per Zone
+        <div class="footer">
+            {{count_per_zones}}/{{count_zones}} | {{count_toda}}/{{total_nametoda}}
+        </div>
+    </nav>
+<!--footer1-->
+    <nav id="footer1">ID-Number
+        <div class="footer">
+            {% for name in infoadd %}
+        {{name.ID_number}}
+         {% endfor %}
+        </div>
+    </nav>
+<!--footer2-->
+    <nav id="footer2">Phone Number
+        <div class="footer">
+            {{name_dash.phone}}
+        </div>
+    </nav>
+<!--footer3-->
+    <nav id="footer3">Email Address
+        <div class="footer3">
+            {{name_dash.email}}
+        </div>
+    </nav>
+
+<!--content6-->
+    <nav id="content6">
+        <div class="footer4">
+
+
+<iframe width="100%" height="300" src="https://maps.google.com/maps?q={{coords}}&hl=en-PH&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">></iframe><br />
+
+
+<!--<iframe width="100%" height="300" src="https://maps.google.com/maps?width=100%&amp;height=300&amp;hl=en&amp;coord={{coords}}z&amp;q=1%20{{streets}}%20Street%2C%20Olongapo%2C%20Philippines&amp;ie=UTF8&amp;t=&amp;z=17&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br />-->
+
+
+        </div>
+    </nav>
+
+<!--total driver-->
+    <nav id="content1">Username
+        <div class="content1">
+<!--            {{count_toda}}-->
+            {{name_dash.user}}
+        </div>
+
+    </nav>
+
+<!--zone-->
+    <nav id="content2">Zone
+         <div class="content2">
+            {{name_dash.zone}}
+        </div>
+    </nav>
+
+<!--toda-->
+    <nav id="content3">Toda
+        <div class="content3">
+            {{name_dash.todaname}}
+        </div>
+    </nav>
+
+<!--image-->
+    <nav id="content4">
+            <img class="card-img-top" src="{{name_dash.image.url}}" alt="" style="width:310px;height:300px;"  alt="...">
+    </nav>
+
+<!--settings-->
+    <nav id="content5" class="container">
+     Select Settings for the Table
+
+    <div class="col-auto" >
+      <input class="form-control me-2 radio-search"  type="search" placeholder="{{radio_cats}}"   aria-label="Search">
+    </div>
+    <br>
+    <form action="" method=POST enctype="multipart/form-data" >
+        {% csrf_token %}
+
+        <p><a href="{% url 'dashone_settings' 'id'%}" >ID Select </a></p>
+        <input type="radio" id="radioid" name="radio_id" value="id ascend">
+        <label>Ascending</label><br>
+         <input type="radio" id="radioid1" name="radio_id" value="id descend">
+        <label>Descending</label><br>
+
+
+
+        <div class="pos-radiobut">
+            <p><a href="{% url 'dashone_settings' 'last_name'%}" >Lastname Select</a></p>
+            <input type="radio" id="radio name" name="radio_name" value="last_name ascend">
+            <label>Ascending</label><br>
+             <input type="radio" id="radioid2" name="radio_name" value="last_name descend">
+            <label>Descending</label><br>
+        </div>
+
+        <div class="pos-radiobut1">
+            <p><a href="{% url 'dashone_settings' 'bodynum'%}" >Body Number Select</a></p>
+            <input type="radio" id="radioid3" name="radio_body" value="bodynum ascend">
+            <label>Ascending</label><br>
+             <input type="radio" id="radioid4" name="radio_body" value="bodynum descend">
+            <label>Descending</label><br>
+        </div>
+
+      <div class="pos-radiobut2">
+        <p><a href="{% url 'dashone_settings' 'todaname'%}" >Todaname Select</a></p>
+        <input type="radio" id="radioid5" name="radio_toda" value="todaname ascend">
+        <label>Ascending</label><br>
+         <input type="radio" id="radioid6" name="radio_toda" value="todaname descend">
+        <label>Descending</label><br>
+      </div>
+
+      <div class="pos-radiobut3">
+        <p><a href="{% url 'dashone_settings' 'zone'%}" >Zone Select</a></p>
+        <input type="radio" id="radioid7" name="radio_zone" value="zone ascend">
+        <label>Ascending</label><br>
+         <input type="radio" id="radioid8" name="radio_zone" value="zone descend">
+        <label>Descending</label><br>
+      </div>
+
+
+       <div class="searches pos-radiobut4">
+            <input type="submit" value="Enter" style="width:32%;">
+            <button type="submit" style="width:32%;" name="reset_radio"  value="reset">Reset</button>
+       </div>
+
+</form>
+
+
+    </nav>
+
+<!--id & seminar info-->
+    <nav id="footer4" class="container ">
+        <table class="adjust-table" >
+        <thead>
+            <tr >
+                <th scope="col" colspan="2">ID Information</th>
+            </tr>
+        </thead>
+            {% for name in infoadd %}
+            <tbody>
+                <tr>
+                 <td class=""> Username </td>
+                 <td class=""> {{name.user_addinfo}} </td>
+                </tr>
+
+                <tr>
+                 <td class=""> ID Number </td>
+                 <td class=""> {{name.ID_number}} </td>
+                </tr>
+
+                <tr>
+                 <td class=""> ID Issue </td>
+                 <td class=""> {{name.ID_issue}} </td>
+                </tr>
+
+                <tr>
+                 <td class=""> ID Expired </td>
+                 <td class=""> {{name.ID_expired}} </td>
+                </tr>
+
+
+            </tbody>
+            {% endfor %}
+
+     </table><br/>
+
+     <table class="adjust-table" >
+        <thead>
+            <tr >
+                <th scope="col" >Seminar Information</th>
+            </tr>
+        </thead>
+
+         {% for seminar in seminarec %}
+          <tbody>
+            <tr>
+                 <td class="" style="text-align: center;"> {{ seminar }}</td>
+            </tr>
+          </tbody>
+         {% endfor %}
+
+     </table>
+
+    <br/><br/>
+    </nav>
+
+<!--main-->
+    <main class="container">
+          <table>
+            <thead>
+              <tr>
+                  <th scope="col"> ID </th>
+                  <th scope="col">Username</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Phone</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">License #</th>
+                  <th scope="col"> Body #</th>
+
+                  <th scope="col">Todaname</th>
+                  <th scope="col">Zone</th>
+              </tr>
+
+
+             </thead>
+            <form action="" method=POST enctype="multipart/form-data">
+             {% csrf_token %}
+
+             {% for name in dash_one %}
+              <tbody>
+                <tr>
+                    <td><a href="{% url 'dashone_sort' name.id %}">{{name.id}}</a></td>
+                  <td><a href="{% url 'dashone_sortuser' name.user %}">{{name.user}}</a></td>
+                  <td >{{name.last_name}}, {{name.first_name}} </td>
+                  <td>{{name.phone}}</td>
+                  <td>{{name.email}}</td>
+                  <td>{{name.license_id}}</td>
+                  <td>{{name.bodynum}}
+                  </td>
+                  <td>{{name.todaname}}</td>
+                  <td>{{name.zone}}</td>
+                </tr>
+
+
+              </tbody>
+            {% endfor %}
+
+
+
+            <div class="searches">
+                <input type="text" class="" placeholder="Search" name="nameid">
+                <button type="submit" class="">Enter</button>
+                <button type="submit" class="" name="reset_name"  value="reset">Reset</button>
+
+                {% if animate_but %}
+
+                <button type="submit" class="" name="animate_stop"  value="animate_stop" id="animate">
+                    Stop </button>
+                {% else %}
+                    <button type="submit" class="" name="animate"  value="animate" id="animate">
+                    Play</button>
+
+                {% endif %}
+
+            </div>
+           </form>
+          </table>
+                  <br/>
+    </main>
+
+
+    <nav id="sidebar" class="container">
+           <form action="" method=POST enctype="multipart/form-data">
+            {% csrf_token %}
+
+              <select name="zones" id="zone"  style="width:32%;">
+                <option selected disabled="true ">Zone</option>
+                <option value="All">All</option>
+                <option value="Zone I">Zone I</option>
+                <option value="Zone II">Zone II</option>
+                <option value="Zone III">Zone III</option>
+              </select>
+              <input  type="submit"  value="Enter" style="width:32%;" background-color= "white;">
+           </form>
+
+        <table>
+            <thead>
+              <tr>
+                  <th scope="col"> Todaname </th>
+                  <th scope="col">Brgyname</th>
+                  <th scope="col">Zone</th>
+
+              </tr>
+
+
+             </thead>
+
+             {% for name in nametoda %}
+              <tbody>
+                <tr>
+                  <td>{{name.name_toda}}</td>
+                  <td>{{name.brgy_name}}</td>
+                  <td  >{{name.todazone}} </td>
+
+                </tr>
+
+              </tbody>
+            {% endfor %}
+
+          </table>
+
+          <br/>
+    </nav>
+
+</div>
+
+<br><br><br><br><br>
+{% if animate_but %}
+<script>
+                var a = "{% url 'dashone_change_val' %}"
+                document.location.href = a;
+</script>
+{% endif %}
+
+{% endblock %}
+
+<!--<script>-->
+<!--   $(document).on('click', '#animates', function (e) {-->
+<!--   e.preventDefault();-->
+<!--			var a = "{% url 'home' %}"-->
+<!--            document.location.href = a;-->
+<!--});-->
+
+<!--</script>-->
+
+

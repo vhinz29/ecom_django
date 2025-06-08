@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  h1{
+   position: relative;
+
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-style: normal;
+   }
+
+
+</style>
+
+<center>
+<h1>Login User</h1><br><br><br><br>
+
+<form class="top-position" method="POST">
+   {% csrf_token %}
+  <div class="mb-3 ">
+    <input type="text" class="form-control" placeholder="First Name" name="username">
+  </div><br/>
+  <div class="mb-3">
+    <input type="password" class="form-control" placeholder="Body Number" name="password">
+  </div>
+  <br/>
+   <div class="d-grid gap-2 ">
+     <br>
+  <button type="submit" class="btn btn-outline-success but-designs">Submit</button>
+   </div>
+</form>
+
+</center>
+
+
+{% endblock %}

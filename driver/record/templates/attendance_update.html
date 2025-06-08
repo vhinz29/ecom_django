@@ -1,0 +1,317 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  h1{
+   position: relative;
+
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-style: normal;
+   }
+
+  h4{
+   position: relative;
+
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-style: normal;
+   }
+
+</style>
+
+<center>
+<h1>Payroll 5th & 20th</h1>
+</center>
+</br></br>
+
+
+<h4>Hi! {{get_names}} &#128515;</h4>
+<div class="row justify-content-center">
+    <div class="col-sm-6 ">
+                  {% for key ,value in fifth_pay.items%}
+      <div class="card  ">
+          <div class="card-header  text-white bg-secondary text-center "><h5>{{value.0}}</h5></div>
+            <table class="table">
+              <tbody>
+                {% if value.1 != 'Day-off' %}
+                <tr>
+                  <td>Login</td>
+                  <td>{{value.1}}</td>
+                </tr>
+                <tr>
+                  <td>Logout</td>
+                  <td>{{value.2}}</td>
+                </tr>
+                <tr>
+                  <td>Total Hours</td>
+                  <td>{{value.3}}</td>
+                </tr>
+                <tr>
+                  <td>Rate per/hr</td>
+                  <td>&#8369;{{value.4}}</td>
+                </tr>
+                <tr>
+                  <td>OT Total Hours</td>
+                  <td>{{value.5}}</td>
+                </tr>
+
+                <tr>
+                  <td>OT Rate per/hr</td>
+                  <td>&#8369;{{value.6}}</td>
+                </tr>
+                <tr>
+                  <td>OT Pay</td>
+                  <td>&#8369;{{value.7}}</td>
+                </tr>
+                <tr>
+                  <td>Salary</td>
+                  <td>&#8369;{{value.8}}</td>
+                </tr>
+
+                <tr>
+                  <td>Total Salary</td>
+                  <td>&#8369;{{value.9}}</td>
+                </tr>
+              {% else %}
+              <tr>
+                  <td>Login</td>
+                  <td>{{value.1}}</td>
+                </tr>
+                <tr>
+                  <td>Logout</td>
+                  <td>{{value.2}}</td>
+                </tr>
+                <tr>
+                  <td>Total Hours</td>
+                  <td>{{value.3}}</td>
+                </tr>
+                <tr>
+                  <td>Rate per/hr</td>
+                  <td>{{value.4}}</td>
+                </tr>
+                <tr>
+                  <td>OT Rate per/hr</td>
+                  <td>{{value.5}}</td>
+                </tr>
+
+                <tr>
+                  <td>OT Total Hours</td>
+                  <td>{{value.6}}</td>
+                </tr>
+                <tr>
+                  <td>OT Pay</td>
+                  <td>{{value.7}}</td>
+                </tr>
+                <tr>
+                  <td>Salary</td>
+                  <td>{{value.8}}</td>
+                </tr>
+
+                <tr>
+                  <td>Total Salary</td>
+                  <td>{{value.9}}</td>
+                </tr>
+              {%endif%}
+
+
+              </tbody>
+
+            </table>
+        </div>
+                  <br/>
+          {% endfor %}
+    </div>
+
+
+
+  <div class="col-sm-6">
+    {% for key ,value in twenty_pay.items%}
+      <div class="card">
+          <div class="card-header  text-white bg-secondary text-center"><h5>{{value.0}}</h5></div>
+            <table class="table">
+              <tbody>
+              {% if value.1 != 'Day-off' %}
+                <tr>
+                  <td>Login</td>
+                  <td>{{value.1}}</td>
+                </tr>
+                <tr>
+                  <td>Logout</td>
+                  <td>{{value.2}}</td>
+                </tr>
+                <tr>
+                  <td>Total Hours</td>
+                  <td>{{value.3}}</td>
+                </tr>
+                <tr>
+                  <td>Rate per/hr</td>
+                  <td>&#8369;{{value.4}}</td>
+                </tr>
+                <tr>
+                  <td>OT Total Hours</td>
+                  <td>{{value.5}}</td>
+                </tr>
+
+                <tr>
+                  <td>OT Rate per/hr</td>
+                  <td>&#8369;{{value.6}}</td>
+                </tr>
+                <tr>
+                  <td>OT Pay</td>
+                  <td>&#8369;{{value.7}}</td>
+                </tr>
+                <tr>
+                  <td>Salary</td>
+                  <td>&#8369;{{value.8}}</td>
+                </tr>
+
+                <tr>
+                  <td>Total Salary</td>
+                  <td>&#8369;{{value.9}}</td>
+                </tr>
+              {% else %}
+              <tr>
+                  <td>Login</td>
+                  <td>{{value.1}}</td>
+                </tr>
+                <tr>
+                  <td>Logout</td>
+                  <td>{{value.2}}</td>
+                </tr>
+                <tr>
+                  <td>Total Hours</td>
+                  <td>{{value.3}}</td>
+                </tr>
+                <tr>
+                  <td>Rate per/hr</td>
+                  <td>{{value.4}}</td>
+                </tr>
+                <tr>
+                  <td>OT Rate per/hr</td>
+                  <td>{{value.5}}</td>
+                </tr>
+
+                <tr>
+                  <td>OT Total Hours</td>
+                  <td>{{value.6}}</td>
+                </tr>
+                <tr>
+                  <td>OT Pay</td>
+                  <td>{{value.7}}</td>
+                </tr>
+                <tr>
+                  <td>Salary</td>
+                  <td>{{value.8}}</td>
+                </tr>
+
+                <tr>
+                  <td>Total Salary</td>
+                  <td>{{value.9}}</td>
+                </tr>
+              {%endif%}
+              </tbody>
+
+            </table>
+
+      </div>
+                  <br/>
+
+          {% endfor %}
+  </div>
+</div>
+
+</br></br>
+<center>
+<h1>Payroll Summary</h1>
+</center>
+</br></br>
+
+
+
+
+<div class="row justify-content-center">
+    <div class="col-sm-6 ">
+      <div class="card  ">
+          <div class="card-header  text-white bg-secondary text-center "><h5>5th Salary Payment</h5></div>
+            <table class="table">
+              <tbody>
+                {% for key, value in total_fifth_pay.items %}
+                <tr>
+                  {%if key == 'OT Salary' %}
+                    <td>{{key}}</td>
+                    <td>&#8369;{{value}}</td>
+                  {%elif key == 'Total Payment' %}
+                    <td>{{key}}</td>
+                    <td>&#8369;{{value}}</td>
+                  {%elif key == 'Total Salary' %}
+                    <td>{{key}}</td>
+                    <td>&#8369;{{value}}</td>
+
+                  {% else %}
+                    <td>{{key}}</td>
+                    <td>{{value}}</td>
+                  {%endif %}
+                </tr>
+
+
+                {%endfor%}
+
+              </tbody>
+
+            </table>
+        </div>
+                  <br/>
+    </div>
+
+
+
+
+  <div class="col-sm-6">
+      <div class="card">
+          <div class="card-header  text-white bg-secondary text-center"><h5>20th Salary Payment</h5></div>
+            <table class="table">
+              <tbody>
+                {% for key, value in total_twenty_pay.items%}
+                <tr>
+                  {%if key == 'OT Salary' %}
+                    <td>{{key}}</td>
+                    <td>&#8369;{{value}}</td>
+                  {%elif key == 'Total Payment' %}
+                    <td>{{key}}</td>
+                    <td>&#8369;{{value}}</td>
+                  {%elif key == 'Total Salary' %}
+                    <td>{{key}}</td>
+                    <td>&#8369;{{value}}</td>
+
+                  {% else %}
+                    <td>{{key}}</td>
+                    <td>{{value}}</td>
+                  {%endif %}
+
+                </tr>
+                {%endfor%}
+
+              </tbody>
+
+            </table>
+
+      </div>
+                  <br/>
+
+  </div>
+</div>
+
+
+
+<br><br><br><br><br>
+
+
+
+{% endblock %}
+
+
+
+

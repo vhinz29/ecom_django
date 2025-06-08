@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  h1{
+   position: relative;
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-style: normal;
+   }
+
+
+  .but-size_one{
+    color: white;
+<!--    text-color: white;-->
+<!--    striped-bg: white;-->
+<!--    active-bg: black;-->
+    border-color: black;
+    border-radius: 10px;
+    border: none;
+    opacity: .5;
+  }
+
+ .but-size_one:hover{
+ opacity: 1;
+ }
+
+.designs{
+  position:relative;
+  border-radius: 5px;
+ }
+
+.table_bgs {
+  color: white;
+  background-color: #0876e1;
+  border-radius: 10px;
+}
+
+a {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: cyan;
+  background-color: transparent;
+  text-decoration: none;
+  opacity: 0.5;
+}
+
+
+</style>
+
+<center>
+<h1>Driver's Record</h1>
+</center><br/><br/><br/>
+
+<!--Count Section-->
+<table class="table table-bordered table-hover ">
+  <thead class="table_bgs ">
+    <tr>
+      <th scope="col" >
+
+          <div class="dropdown ">Count
+            <a class="btn btn-black dropdown-toggle but-size_one" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink ">
+<!--            <form class="top-position" method="POST">-->
+              <li><a class="dropdown-item" href="{% url 'zone_view' 'ascend num' %}" >Ascending</a></li>
+              <li><a class="dropdown-item" href="{% url 'zone_view' 'descend num' %}">Descending</a></li>
+              <li><a class="dropdown-item" href="{% url 'zone_view' 'random num' %}">Random</a></li>
+<!--            </form>-->
+            </ul>
+          </div>
+      </th>
+
+<!--Body Number Section-->
+    <th scope="col">
+      <div class="dropdown" >Body Number
+        <a class="btn btn-black dropdown-toggle but-size_one" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+        </a>
+
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li><a class="dropdown-item" href="{% url 'zone_view' 'ascend body' %}">Ascending</a></li>
+          <li><a class="dropdown-item" href="{% url 'zone_view' 'descend body' %}">Descending</a></li>
+          <li><a class="dropdown-item" href="{% url 'zone_view' 'random body' %}">Random</a></li>
+       </ul>
+      </div>
+    </th>
+
+<!--Full Name Section-->
+    <th scope="col">
+     <div class="dropdown" >Full Name
+      <a class="btn btn-blacl dropdown-toggle but-size_one" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+      </a>
+
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <li><a class="dropdown-item" href="{% url 'zone_view' 'ascend names' %}">Ascending</a></li>
+        <li><a class="dropdown-item" href="{% url 'zone_view' 'descend names' %}">Descending</a></li>
+        <li><a class="dropdown-item" href="{% url 'zone_view' 'random names' %}">Random</a></li>
+      </ul>
+     </div>
+    </th>
+
+<!--Phone Number      -->
+    <th scope="col">
+     <div class="dropdown" >Phone Number
+      <a class="btn btn-black dropdown-toggle but-size_one" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+      </a>
+       <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <li><a class="dropdown-item" href="{% url 'zone_view' 'ascend phone' %}">Ascending</a></li>
+        <li><a class="dropdown-item" href="{% url 'zone_view' 'descend phone' %}">Descending</a></li>
+        <li><a class="dropdown-item" href="{% url 'zone_view' 'random phone' %}">Random</a></li>
+       </ul>
+     </div>
+    </th>
+
+
+<!--Email Adress Section-->
+    <th scope="col">
+     <div class="dropdown" >Email Address
+      <a class="btn btn-black dropdown-toggle but-size_one" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+      </a>
+
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <li><a class="dropdown-item" href="{% url 'zone_view' 'ascend mail' %}">Ascending</a></li>
+        <li><a class="dropdown-item" href="{% url 'zone_view' 'descend mail' %}">Descending</a></li>
+        <li><a class="dropdown-item" href="{% url 'zone_view' 'random mail' %}">Random</a></li>
+      </ul>
+     </div>
+    </th>
+
+<!--Zone Number Section     -->
+    <th scope="col">
+     <div class="dropdown" >Zone Number
+      <a class="btn btn-black dropdown-toggle but-size_one" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+      </a>
+
+         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li><a class="dropdown-item" href="{% url 'zone_view' 'ascend zones' %}">Ascending</a></li>
+          <li><a class="dropdown-item" href="{% url 'zone_view' 'descend zones' %}">Descending</a></li>
+          <li><a class="dropdown-item" href="{% url 'zone_view' 'random zones' %}">Random</a></li>
+        </ul>
+      </div>
+    </th>
+
+    </tr>
+  </thead>
+
+{% for name in names %}
+
+<!--  {{name.id}}-->
+  <form action="" method=POST >
+    {% csrf_token %}
+    <tbody>
+      <tr>
+        <th scope="row" >{{name.id}}</th>
+        <td  ><a href="{% url 'zone_profile' name.id %}" >{{name.bodynum}} </a></td>
+        <td>{{name.first_name}} {{name.last_name}}</td>
+        <td>{{name.phone}}</td>
+        <td>{{name.email}}</td>
+        <td>{{name.zone}}</td>
+      </tr>
+      <tr>
+    </form>
+{% endfor %}
+
+<!--<th scope="row">{{forloop.counter}}</th>-->
+
+
+
+{% endblock %}

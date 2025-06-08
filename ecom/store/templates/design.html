@@ -1,0 +1,340 @@
+{% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Wallpoet&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<style>
+<!-- *{-->
+<!--    margin: 10;-->
+<!--    padding: 0;-->
+<!--    box-sizing: border-box;-->
+<!--    font-family: "Poppins", serif;-->
+<!--    }-->
+
+ .box1{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
+    min-height: 20vh;
+    color: white;
+    background-color: #0e1538;
+    border-radius: 20px;
+    border: 10px solid cyan;
+    width: 800px;
+    left: 50px;
+    z-index:2;
+
+    }
+
+.box1 h1{
+     font-size: 40px;
+     font-weight: 600;
+    font-style: normal;
+    font-family: "Orbitron", serif;}
+
+.box2{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
+    min-height: 10vh;
+    color: black;
+    background-color: yellow;
+    border-radius: 20px;
+    width: 300px;
+    border: 5px solid red;
+    bottom:110;
+    z-index:3;
+    }
+
+.box2 h1{
+     font-size: 20px;
+     font-weight: 600;
+    font-style: normal
+    font-family: "Montserrat", serif;
+    }
+
+.box3{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
+    min-height: 8vh;
+    color: black;
+    background-color: red;
+    border-radius: 100px;
+    width: 400px;
+    border: 7px solid green;
+    bottom: 120px;
+    left: 700px;
+    z-index:1;
+    }
+
+.box3 h1{
+     font-size: 15px;
+     font-weight: 600;
+    font-style: normal;
+    font-family: "Black Ops One", serif;
+    }
+
+
+.box4{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
+    min-height: 20vh;
+    color: black;
+    background-color: orange;
+    border-radius: 10px;
+    width: auto;
+    border: 5px solid pink;
+    bottom: 120px;
+    z-index:1;
+    bottom: 100px;
+    }
+
+.box4 h1 {
+    font-size: 50px;
+    font-weight: 600;
+    font-style: normal;
+    font-family: "Wallpoet", serif;
+    }
+
+
+.gallerys {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 250px;
+  margin-left: 90px;
+  border-radius: 10px;
+
+}
+
+.gallerys:hover {
+  border: 1px solid #777;
+}
+
+.gallerys img {
+   width: 100%;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.desc {
+  padding: 60px;
+  text-align: center;
+}
+
+
+.bottom-page{
+    position: static;
+    display: flex;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
+    min-height: 20vh;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+    width: auto;
+    border: 5px solid gray;
+    bottom: 120px;
+    z-index:1;
+<!--    bottom: 100px;-->
+    }
+
+.bottom-page h1{
+    font-size: 15;
+    font-weight: 600;
+    font-style: normal;
+    font-family: "Wallpoet", serif;
+    }
+
+
+  .navi-bar  ul{
+    list-style-type: none;
+    display: flex;
+    -ms-align-items: center;
+    align-items: center;
+    min-height: 10vh;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    width: auto;
+    box-shadow: 3px 3px 5px #263238;
+
+    }
+
+  .navi-bar li{
+      display: inline;
+
+    }
+
+    .navi-bar li a.heads{
+      color: #455a64;
+      font-size: 20px;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    .navi-bar li a.body{
+      position:relative;
+      color: #607D8B ;
+      font-size: 18px;
+      text-decoration: none;
+      margin-left: 30px;
+      left: 40px
+      transition: .5s;
+    }
+
+    .navi-bar li a:hover{
+    position:relative;
+    color:white ;
+     background-color: black;
+     padding: 25px 15px;
+     border-radius: 5px;
+     opacity: 0.7;
+    }
+</style>
+
+
+<div class="navi-bar">
+    <ul>
+      <li><a href="#home" class="heads">Codemy Commerce</a></li>
+      <li><a href="#news" class="body">Home</a></li>
+      <li><a href="#contact" class="body">About</a></li>
+      <li><a href="#about" class="body">Categories</a></li>
+      <li><a href="#about" class="body">Design</a></li>
+      <li><a href="#about" class="body">Logout</a></li>
+    </ul>
+</div><br/><br/><br/>
+
+
+<div class="box1">
+    <h1>Design One</h1>
+</div>
+
+<div class="box2">
+    <h1>Design Two</h1>
+</div>
+
+ <div class="box3">
+    <h1>Design Three</h1>
+</div>
+
+ <div class="box4">
+    <h1>Design four</h1>
+</div>
+
+<div class="gallerys">
+      <a target="_blank"  href="{% static 'valentines.jpg' %}" >
+
+        <img src="{% static 'valentines.jpg' %}"  alt="Valentines Day" >
+      </a>
+  <div class="desc">Valentines Day</div>
+</div>
+
+<div class="gallerys">
+      <a target="_blank" href="{% static 'ulo_ng_apo.jpg' %}">
+        <img src="{% static 'ulo_ng_apo.jpg' %}" alt="Ulo ng Apo" >
+      </a>
+  <div class="desc">Ulo ng Apo</div>
+</div>
+
+<div class="gallerys">
+  <a target="_blank" href="{% static 'great_parks.jpg' %}">
+    <img src="{% static 'great_parks.jpg' %}" alt="Great Parks" >
+  </a>
+  <div class="desc">Great Park</div>
+</div>
+
+<div class="gallerys">
+  <a target="_blank" href="{% static 'area_luneta.jpg' %}">
+    <img src="{% static 'area_luneta.jpg' %}" alt="Luneta Park" >
+  </a>
+  <div class="desc">Luneta Park</div>
+
+</div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br>
+
+
+
+<div class="gallerys">
+      <a target="_blank"  href="{% static 'family photo.jpg' %}" >
+        <img src="{% static 'family photo.jpg' %}"  alt="Family Photo">
+      </a>
+  <div class="desc">Family Photo Picture</div>
+</div>
+
+<div class="gallerys">
+      <a target="_blank" href="{% static 'family_me.png' %}">
+        <img src="{% static 'family_me.png' %}" alt="Family Me ">
+      </a>
+  <div class="desc"> Family Picture</div>
+</div>
+
+<div class="gallerys">
+  <a target="_blank" href="{% static 'vhinz_&_dad.png' %}">
+    <img src="{% static 'vhinz_&_dad.png' %}" alt="Melvin Selfie" >
+  </a>
+  <div class="desc">Melvin Selfie w/ Daddy</div>
+</div>
+
+<div class="gallerys">
+  <a target="_blank" href="{% static 'vhnz grad.png' %}">
+    <img src="{% static 'vhnz grad.png' %}" alt="Graduation Day" >
+  </a>
+  <div class="desc">Graduation Day w/ Mama</div>
+
+</div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br>
+
+
+<div class="bottom-page ">
+    <h1>Copyright © Your Website 2025</h1>
+</div>
+
+
+
+<!--.gallery {-->
+<!--    position: relative;-->
+<!--       justify-content: center;-->
+<!--      float: left;-->
+<!--      width: 250px;-->
+<!--      border: 1px solid black;-->
+<!--      margin-right: 50px;-->
+<!--      margin-left: 50px;-->
+<!--    }-->
+
+<!--.gallery:hover {-->
+<!--  border: 2px solid #777;-->
+<!--}-->
+
+<!--.gallery img {-->
+<!--  width: 100%;-->
+<!--  height: 200px;-->
+<!--  height: auto;-->
+<!--}-->
+
+
+
+<!--.desc {-->
+<!--  padding: 60px;-->
+<!--  text-align: center;-->
+<!--  font-size: 15px;-->
+<!--  font-weight: 300;-->
+<!--  font-style: normal;-->
+<!--    font-family: "Montserrat", serif;-->
+<!--}-->

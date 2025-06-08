@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+
+   :root{
+  --main-radius: 10px;
+  --main-padding: 5px;
+  --main-background: linear-gradient(#36719F,#36719F);
+  }
+
+   .container{
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 1.0fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    grid-template-areas:
+    "nav"
+    "sidebar"
+    "main"
+    "content1"
+    "content2"
+    "content3"
+    "footer";
+    grid-gap: 0.2rem;
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    text-transform: capitalize;
+    font-size: 15px;
+    color: white;
+    text-align: left;
+    text-indent: 5px;
+   }
+
+
+  nav{
+  grid-area: nav;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  main{
+  grid-area: main;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #sidebar{
+  background:#18ffff;
+  grid-area: sidebar;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #content1{
+  background:#6fffd2;
+  grid-area: content1;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #content2{
+  background:#6fffda;
+  grid-area: content2;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  #content3{
+  background: #6fffba;
+  grid-area: content3;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+  footer{
+  background: #1de9b6;
+  grid-area: footer;
+  border-radius:var(--main-radius);
+  padding-top: var(--main-padding);
+  background: var(--main-background);
+  }
+
+
+  .margin{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "Poppins", serif;
+   }
+
+  .body{
+  width: 35%;
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(gray,black,black,gray);
+  border-radius: 10px;
+  }
+
+  h1{
+
+  position: relative;
+  padding: 0 1rem;
+  font-size: 30px;
+  color: transparent;
+  -webkit-text-stroke: 0.1rem #00abf0;
+  background-image: linear-gradient(#00abf0 ,#00abf0 );
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  -webkit-background-clip: text;
+  animation: animate 6s linear infinite;
+  }
+
+  h1::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    border-right: 4px solid #00abf0;
+    animation: lineAnimate 6s linear infinite;
+  }
+
+  @keyframes animate{
+      0% ,10%, 100%{
+        background-position: -25rem 0;
+      }
+
+      80% ,90%{
+        background-position: 0 0;
+      }
+    }
+
+  @keyframes lineAnimate{
+      0% ,37%, 100%{
+        width: 0%;
+      }
+
+      80% ,90%{
+        width: 100%;
+      }
+    }
+
+</style>
+
+<div class="body">
+  <h1 >Dashboard Two</h1>
+</div>
+
+</br>
+<div class="container">
+  <nav>Navbar</nav>
+  <main>Main</main>
+  <nav id="sidebar">Sidebar</nav>
+  <nav id="content1">Content1</nav>
+  <nav id="content2">Content2</nav>
+  <nav id="content3">Content3</nav>
+  <footer>Footer</footer>
+
+</div>
+
+
+{% endblock %}
+
+

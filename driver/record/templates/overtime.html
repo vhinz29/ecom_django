@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  h1{
+   position: relative;
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-style: normal;
+   }
+
+
+.hours_box{
+  color: gray;
+  width: 200px;
+  padding: 5px;
+  text-indent: 10px;
+  justify-content: center;
+}
+
+h4{
+   position: relative;
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-style: normal;
+   font-size:  20px;
+   }
+
+.date_design{
+   position: relative;
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-size: 20px;
+   font-style: normal;
+   top: -10px;
+   }
+
+   .month_design{
+   position: relative;
+   color: green;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-size: 15px;
+   font-style: normal;
+   left: 12px;
+   }
+
+
+
+.dropbtn {
+  background: linear-gradient(gray,gray);;
+  color: white;
+  padding: 3px 10px;
+  font-size: 9px;
+  border: none;
+  opacity: 0.5;
+  border-radius: 5px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 5px 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block; }
+
+.dropdown:hover .dropbtn {background-color: gray;}
+
+.table_bgs {
+  color: white;
+  background-color: #0876e1;
+}
+
+</style>
+
+<center>
+<h1>Overtime Section</h1>
+</center>
+</br></br>
+
+
+<nav>
+<form action="" method=POST enctype="multipart/form-data">
+        {% csrf_token %}
+    <div class="date_design">
+    Hi! {{request.user.first_name}} {{request.user.last_name}} &#128515; {{date_now}}
+
+    <div class="dropdown month_design">Select Dates &#11206;
+<!--       <button class="dropbtn">&#11206;</button>-->
+          <div class="dropdown-content">
+              {% for ot in ot_five_days %}
+              <a class="dropdown-item" href="{% url 'overtime_select' ot%}">{{ot}}</a>
+              {% endfor %}
+
+          </div>
+    </div>
+
+    </form>
+ <div>
+</nav>
+
+
+<div class="card">
+  <h5 class="card-header table_bgs">
+    {% if ot_days.ot_request%}
+  {%if ot_days.ot_approved %}
+    Overtime Status: Approved
+  {%else %}
+    Overtime Status: Submitted
+  {%endif%}
+
+{% else%}
+  Overtime Status: No Request
+{%endif%}
+  </h5></br>
+
+<div class="shadow card-body">
+
+<form class="" method="POST">
+      {% csrf_token  %}
+
+  <h6>Overtime Request</h6>
+    <select name="ot" class="form-select">
+      <option selected>Request Overtime</option>
+        <option  value="True">yes</option>
+        <option value="False">no</option>
+    </select>
+
+  </br>
+
+  <h6>Overtime Hours</h6>
+    <select name="time" class="form-select">
+      <option selected>Select Time</option>
+      {% for hour in ot_hour %}
+      <option value="{{hour}}">{{hour}}</option>
+      {% endfor %}
+    </select>
+
+ {% if ot_days.ot_approved %}
+  </br>
+  <h6>Request OT Time </h6>
+  <div class="shadow-lg  mb-4 bg-body-tertiary rounded hours_box "><h6>{{ ot_days.ot_request_time }}</h6></div>
+
+
+  <h6>Approved OT Time </h6>
+  <div class="shadow-lg  mb-4 bg-body-tertiary rounded hours_box "><h6>{{ ot_days.ot_approved_time }}</h6></div>
+
+
+
+ {% elif ot_days.ot_request_time %}
+   </br>
+  <h6>Request Time </h6>
+  <div class="shadow-lg  mb-4 bg-body-tertiary rounded hours_box "><h6>{{ ot_days.ot_request_time }}</h6></div>
+
+    </br>
+       <div class="d-grid gap-2">
+    <button class="btn text-white btn-outline-danger  rounded" type="submit"  >Submit</button>
+    </div>
+  {% else %}
+    </br></br></br>
+       <div class="d-grid gap-2">
+    <button class="btn text-white btn-outline-danger  rounded" type="submit"  >Submit</button>
+    </div>
+     {% endif %}
+
+</form>
+      </br>
+
+  </div>
+
+  </div>
+
+
+{% endblock %}

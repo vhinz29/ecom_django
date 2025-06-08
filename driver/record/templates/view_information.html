@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+img{
+   position: relative;
+   bottom: 625px;
+   left: 720px;
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-style: normal;
+   }
+
+  h1{
+   position: relative;
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-style: normal;
+   }
+</style>
+
+<center>
+
+<h1>View Search Profile</h1>
+</center><br/>
+<right>
+{% for name in names %}
+
+<form>
+    <fieldset disabled>
+  <div class="col-md-6">
+    <label  class="form-label">First Name</label>
+    <input type="text" class="form-control"  placeholder= {{name.first_name}} >
+  </div></br>
+  <div class="col-md-6">
+    <label  class="form-label">Last Name</label>
+    <input type="text" class="form-control" placeholder= {{name.last_name}} >
+  </div></br>
+
+  <div class="col-md-6">
+    <label  class="form-label">Phone Number</label>
+    <input type="text" class="form-control" placeholder= {{name.phone}}>
+  </div></br>
+
+    <div class="col-md-6">
+    <label  class="form-label">Email Address</label>
+    <input type="text" class="form-control" placeholder= {{name.email}}>
+  </div></br>
+
+    <div class="col-md-6">
+    <label  class="form-label">Body Number</label>
+    <input type="text" class="form-control" placeholder= {{name.bodynum}}>
+  </div></br>
+
+    <div class="col-md-6">
+    <label  class="form-label">Toda Namer</label>
+    <input type="text" class="form-control" placeholder= {{name.todaname}}>
+  </div></br>
+
+    <div class="col-md-6">
+    <label  class="form-label">Zone Number</label>
+    <input type="text" class="form-control" placeholder= '{{name.zone}}'>
+  </div></br>
+
+</fieldset>
+</form>
+
+<img class="card-img-top" src="{{name.image.url}}" alt="" style="width:600px;height:600px;"  alt="...">
+<!--<div class="card" style="width: 20rem;">-->
+<!--  <img class="card-img-top" src="{{name.image.url}}" alt=""   alt="...">-->
+
+
+</div>
+{% endfor %}
+</right>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  h1{
+   position: relative;
+
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-style: normal;
+   }
+
+</style>
+
+<center>
+<h1>Additional Information Register</h1>
+</center>
+</br>
+</br>
+
+{% if user.is_authenticated %}
+    <form action="" method=POST enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <br><div class="d-grid gap-2">Add Information
+            <input name="registers" type="submit" value="Information" class="btn btn-outline-danger">
+        </div>
+    </form>
+
+</br></br>
+
+
+    <form action="" method=POST enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ sem_form.as_p }}
+</br>
+
+        <br><div class="d-grid gap-2">Add Seminars
+            <input name="seminars" type="submit"  value="Seminars" class="btn btn-outline-danger">
+        </div>
+    </form>
+
+{% endif %}
+
+</br></br>
+{% endblock %}
+
+
+

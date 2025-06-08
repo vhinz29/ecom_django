@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  h1{
+   position: relative;
+
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-style: normal;
+   }
+
+</style>
+
+<center>
+<h1>User Registration</h1>
+</center>
+
+<div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <br/><br/>
+
+            <form method=POST action="{% url 'register' %}" >
+                 {% csrf_token %}
+                {{ form.as_p}}
+                <br/>
+              <div class="d-grid gap-2 ">
+                 <button type="submit" class="btn btn-outline-success but-designs">Register</button>
+                </div>
+
+            </form>
+            </div>
+        </div>
+    </div>
+
+</br></br>
+{% endblock %}

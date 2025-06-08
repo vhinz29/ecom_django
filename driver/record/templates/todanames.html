@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  h1{
+   position: relative;
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-style: normal;
+   }
+
+
+  .but-size_one{
+    color: white;
+<!--    text-color: white;-->
+<!--    striped-bg: white;-->
+<!--    active-bg: black;-->
+    border-color: black;
+    border-radius: 10px;
+    border: none;
+    opacity: .5;
+  }
+
+ .but-size_one:hover{
+ opacity: 1;
+ }
+
+.designs{
+  position:relative;
+  border-radius: 5px;
+ }
+
+  .but-size{
+  padding: 6px 30px;
+   }
+
+  .but-size1{
+  padding: 6px 45px;
+   }
+
+.table_bgs {
+  color: white;
+  background-color: #0876e1;
+  border-radius: 10px;
+}
+
+a {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+  opacity: 0.5;
+}
+
+
+
+</style>
+
+<center>
+<h1>Toda List</h1>
+</center><br/><br/><br/>
+
+<!--<form class="d-flex">-->
+<!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--      </form>-->
+<!--Count-->
+<form class="" method="POST">
+      {% csrf_token  %}
+ <div class="row g-2 mb-1">
+          <div class="col-auto" >
+                <input class="form-control me-2 "  type="search" placeholder="{{seq_orders}}"  size="50" aria-label="Search">
+            </div>
+         <div class="col-auto">
+                <button class="btn btn-outline-success  but-size" type="submit"  >Sequence</button>
+         </div>
+        <div class="col-auto">
+            <button class="btn btn-outline-danger but-size1" name="reset_name"  value="reset" type="submit">Reset</button  >
+        </div>
+      </div>
+    <div class="shadow p-4 mb-5 bg-body rounded">
+
+<table class="table table-bordered table-hover ">
+  <thead class="table_bgs ">
+
+    <tr>
+      <th scope="col" ><a href="{%url 'todanames' 'id'%}" > Count</a>
+           <select name="order_count" id="count">
+               <option selected disabled="true ">Count</option>
+               <option value="ascend count">Ascending</option>
+                <option value="descend count">Descending</option>
+            </select>
+      </th>
+<!--Toda Name-->
+<!--    <th scope="col">-->
+      <th scope="col" ><a href="{%url 'todanames' 'name_toda'%}" > Toda Name</a>
+           <select name="order_toda" id="toda">
+               <option selected disabled="true ">Toda</option>
+               <option value="ascend toda">Ascending</option>
+                <option value="descend toda">Descending</option>
+<!--                <option value="random toda">Random</option>-->
+            </select>
+      </th>
+<!--    </th>-->
+
+<!--Barangay Name-->
+    <th scope="col"> <a href="{%url 'todanames' 'brgy_name' %}" > Barangay Name</a>
+        <select name="order_brgy" id="brgy">
+           <option selected disabled="true ">Brgy</option>
+           <option value="ascend brgy">Ascending</option>
+            <option value="descend brgy">Descending</option>
+<!--            <option value="random brgy">Random</option>-->
+        </select>
+    </th>
+
+<!--Toda Zone-->
+    <th scope="col"> <a href="{%url 'todanames' 'todazone' %}" > Toda Zone</a>
+        <select name="order_zone" id="zone">
+           <option selected disabled="true ">Zone</option>
+           <option value="ascend zone">Ascending</option>
+            <option value="descend zone">Descending</option>
+<!--            <option value="random zone">Random</option>-->
+        </select>
+    </th>
+
+    </tr>
+  </thead>
+
+ {% for name in names %}
+    <tbody>
+      <tr>
+        <td > {{name.id}} </td>
+        <td  >{{name.name_toda}} </td>
+        <td>{{name.brgy_name}}</td>
+        <td>{{name.todazone}}</td>
+
+      </tr>
+    </tbody>
+{% endfor %}
+
+<!--   <input type="submit" value="Search">-->
+
+
+</table>
+    </div>
+
+</form>
+
+</br>
+{% endblock %}

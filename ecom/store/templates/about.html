@@ -1,0 +1,214 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">About Us</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Welcome to Codemy Ecommerce</p>
+        </div>
+    </div>
+</header>
+
+    <div class="container">
+        <div class="row">
+                <div class="col-12">
+                    <br/>
+                    <center><a href="https://www.djangoproject.com/" target="_blank" style='text-decoration: none;'><h2 >Django documentation</h2></a>
+                    <i style='font-size: 20px;'>'Everything you need to know about Django.'</i></center><br>
+
+                    <h4>First steps</h4>
+                        <div class="container">
+                        <p>Are you new to Django or to programming? This is the place to start!</p>
+
+                        <ul>
+                            <li>From scratch: Overview | Installation</li>
+                            <li>Tutorial: Part 1: Requests and responses | Part 2: Models and the admin site
+                                | Part 3: Views and templates | Part 4: Forms and generic views | Part 5:
+                                Testing | Part 6: Static files | Part 7: Customizing the admin site |
+                                Part 8: Adding third-party packages</li>
+
+                            <li>Advanced Tutorials: How to write reusable apps |
+                                Writing your first contribution to Django</li>
+                    </ul>
+                    </div>
+                    <br>
+                    <h4>Getting help</h4>
+                        <div class="container">
+                        <p>Having trouble? We’d like to help!</p>
+                        <ul>
+                            <li>Try the FAQ – it’s got answers to many common questions.</li>
+
+                            <li>Looking for specific information? Try the Index,
+                                Module Index or the detailed table of contents.</li>
+
+                            <li>Not found anything? See FAQ: Getting Help for information on
+                                getting support and asking questions to the community.</li>
+
+                            <li>Report bugs with Django in our ticket tracker.
+                    </ul>
+                    </div>
+
+                    <br>
+                    <h4>How the documentation is organized</h4>
+                        <div class="container">
+                        <p>Django has a lot of documentation. A high-level overview of how it’s organized
+                            will help you know where to look for certain things:</p>
+                        <ul>
+                            <li>Tutorials take you by the hand through a series of steps to create a web
+                                application. Start here if you’re new to Django or web application development.
+                                Also look at the “First steps”.</li>
+
+                            <li>Topic guides discuss key topics and concepts at a fairly high level and provide
+                                useful background information and explanation.</li>
+
+                            <li>Reference guides contain technical reference for APIs and other aspects of
+                                Django’s machinery. They describe how it works and how to use it but assume that you
+                                have a basic understanding of key concepts.</li>
+
+                            <li>How-to guides are recipes. They guide you through the steps involved in addressing
+                                key problems and use-cases. They are more advanced than tutorials and assume some
+                                knowledge of how Django works.</li>
+                    </ul>
+                    </div>
+                    <br>
+
+                    <h4>The model layer</h4>
+                        <div class="container">
+                        <p>Django provides an abstraction layer (the “models”) for structuring and manipulating the data of
+                            your web application. Learn more about it below:</p>
+                    <ul>
+                        <li><strong>Models:</strong> Introduction to models | Field types | Indexes | Meta options |
+                            Model class</li>
+
+                        <li><strong>QuerySets:</strong> Making queries | QuerySet method reference | Lookup expressions</li>
+
+                        <li><strong>Model instances:</strong> Instance methods | Accessing related objects</li>
+
+                        <li><strong>Migrations:</strong> Introduction to Migrations | Operations reference |
+                            SchemaEditor | Writing migrations</li>
+
+                        <li><strong>Advanced:</strong> Managers | Raw SQL | Transactions | Aggregation | Search |
+                            Custom fields | Multiple databases | Custom lookups | Query Expressions |
+                            Conditional Expressions | Database Functions</li>
+
+                        <li><strong>Other:</strong> Supported databases | Legacy databases | Providing initial data |
+                            Optimize database access | PostgreSQL specific features</li>
+                    </ul>
+                     </div>
+                    <br>
+
+                    <h4>The view layer</h4>
+                        <div class="container">
+                        <p>Django has the concept of “views” to encapsulate the logic responsible for processing a user’s
+                            request and for returning the response. Find all you need to know about views via the links below:</p>
+                        <ul>
+                            <li><strong>The basics:</strong> URLconfs | View functions | Shortcuts |
+                                Decorators | Asynchronous Support</li>
+
+                            <li><strong>Reference:</strong> Built-in Views | Request/response objects |
+                                TemplateResponse objects</li>
+
+                            <li><strong>File uploads:</strong> Overview | File objects | Storage API |
+                                Managing files | Custom storage</li>
+
+                            <li><strong>Class-based views:</strong> Overview | Built-in display views |
+                                Built-in editing views | Using mixins | API reference | Flattened index</li>
+
+                            <li><strong>Advanced:</strong> Generating CSV | Generating PDF</li>
+
+                            <li><strong>Middleware:</strong> Overview | Built-in middleware classes</li>
+                        </ul>
+                    </div>
+                    <br/>
+
+                    <h4>The template layer</h4>
+                        <div class="container">
+                        <p>The template layer provides a designer-friendly syntax for rendering the
+                            information to be presented to the user. Learn how this syntax can be used
+                            by designers and how it can be extended by programmers:</p>
+                        <ul>
+                        <li><strong>The basics:</strong> Overview</li>
+
+                        <li><strong>For designers:</strong> Language overview | Built-in tags and filters |
+                            Humanization</li>
+
+                        <li><strong>For programmers:</strong> Template API | Custom tags and filters |
+                            Custom template backend</li>
+                        </ul>
+                    </div>
+                    <br/>
+
+                    <h4>Forms</h4>
+                    <div class="container">
+                        <p>Django provides a rich framework to facilitate the creation of forms and the manipulation of form data.</p>
+
+                        <ul>
+                        <li><strong>The basics:</strong> Overview | Form API | Built-in fields | Built-in widgets</li>
+
+                        <li><strong>Advanced:</strong> Forms for models | Integrating media | Formsets | Customizing validation</li>
+                        </ul>
+                    </div>
+                    <br/>
+
+                    <h4>The development process</h4>
+                    <div class="container">
+                        <p>Learn about the various components and tools to help you in the
+                            development and testing of Django applications:</p>
+                        <ul>
+                        <li><strong>Settings:</strong> Overview | Full list of settings</li>
+
+                        <li><strong>Applications:</strong> Overview</li>
+
+                        <li><strong>Exceptions:</strong> Overview</li>
+
+                        <li><strong>django-admin and manage.py:</strong> Overview | Adding custom commands</li>
+
+                        <li><strong>Testing:</strong> Introduction | Writing and running tests | Included
+                            testing tools | Advanced topics</li>
+
+                        <li><strong>Deployment:</strong> Overview | WSGI servers | ASGI servers |
+                            Deploying static files | Tracking code errors by email | Deployment checklist</li>
+
+                        </ul>
+                    </div>
+                    <br/>
+
+                    <h4>The admin</h4>
+                    <div class="container">
+                        <p>Find all you need to know about the automated admin interface, one of Django’s most popular features:</p>
+                        <ul>
+                        <li>Admin site</li>
+
+                        <li>Admin actions</li>
+
+                        <li>Admin documentation generator</li>
+                        </ul>
+                    </div>
+                    </br>
+
+                    <h4>Security</h4>
+                    <div class="container">
+                        <p>Security is a topic of paramount importance in the development of web applications and Django provides multiple protection tools and mechanisms:</p>
+                        <ul>
+                        <li>Security overview</li>
+
+                        <li>Disclosed security issues in Django</li>
+
+                        <li>Clickjacking protection</li>
+
+                        <li>Cross Site Request Forgery protection</li>
+
+                        <li>Cryptographic signing</li>
+
+                        <li>Security Middleware</li>
+
+                        </ul>
+                    </div>
+                    <br/>
+
+                </div>
+        </div>
+    </div>
+
+{% endblock %}

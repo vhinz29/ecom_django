@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  h1{
+   position: relative;
+
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-style: normal;
+   }
+
+h4{
+   position: relative;
+
+   color: gray;
+   font-family: "Poppins", serif;
+   font-weight: 400;
+   font-style: normal;
+   }
+
+.pos_but{
+position: relative;
+left: 870px;
+}
+
+.pos_but1{
+position: relative;
+left: 810px;
+}
+
+</style>
+
+<center>
+<h1>Login & Logout Update</h1>
+</center>
+</br></br></br>
+
+
+
+<table class="table table-hover">
+  <tbody>
+  <thead>
+        <th scope="col">
+
+            <h4>Hi! {{names_users}} &#128515;, {{date_of_update}}</th>
+
+
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  {% for key, value in select_date.items %}
+  <H1>{{value.2}}</H1>
+    <tr>
+     {% if key == 'Rate'%}
+       <td>{{key}}</td>
+        <td>&#8369;{{value}}</td>
+
+     {% elif key == 'OT Rate'%}
+       <td>{{key}}</td>
+        <td>&#8369;{{value}}</td>
+
+     {% elif key == 'OT Pay'%}
+       <td>{{key}}</td>
+        <td>&#8369;{{value}}</td>
+
+     {% elif key == 'Total Salary'%}
+       <td>{{key}}</td>
+        <td>&#8369;{{value}}</td>
+
+     {% elif key == 'Total Payment'%}
+       <td>{{key}}</td>
+        <td>&#8369;{{value}}</td>
+
+      {% else %}
+        <td>{{key}}</td>
+        <td>{{value}}</td>
+     {%endif%}
+    </tr>
+
+    {%endfor%}
+  </tbody>
+</table>
+
+<br><br><br>
+<form action="" method=POST enctype="multipart/form-data">
+        {% csrf_token %}
+
+<!-- <h5>Date: {{date_of_update}} </h5></br>-->
+<!--  <div class="mb-3">-->
+<!--    <label  class="form-label">Date: {{date_of_update}}</label>-->
+<!--    <input type="date" class="form-control" name='dates' value="date" placeholder="">-->
+<!--  </div>-->
+
+  <div class="mb-3 ">
+    <label  class="form-label">Login: {{login_of_update}}</label>
+    <input type="time" class="form-control" name='login' value="login" placeholder="">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleFormControlInput3" class="form-label">Logout: {{logout_of_update}}</label>
+    <input type="time" class="form-control" id="exampleFormControlInput3" name='logout' value="logout" placeholder="">
+  </div>
+
+  </br></br>
+  <div class="d-grid gap-2 ">
+      <button type="submit" class="btn btn-outline-success but-designs">Submit</button>
+  </div>
+</br>
+
+    {% if return_back == 'calendars_back' %}
+  <div class="d-grid gap-2 ">
+      <a href="{% url 'calendars'%}" class="btn btn-outline-success " tabindex="-1" role="button" aria-disabled="true">Back</a>
+  </div>
+    {%else%}
+
+  <div class="d-grid gap-2 ">
+      <a href="{% url 'attendance' %}" class="btn btn-outline-danger " tabindex="-1" role="button" aria-disabled="true">Back</a>
+  </div>
+    {% endif %}
+</form>
+
+</br></br></br></br>
+{% endblock %}
